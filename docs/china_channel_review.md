@@ -42,7 +42,12 @@ This is a genuinely new line of business, not a channel-cost item — kept here 
 
 ## September–October 2026 (plan)
 
-**Payout:** a new Alipay payout channel is confirmed, priced at **HTX P2P + 3%** (nominal). Compared against TCL's all-in cost (2.7% payout + 0.2% agent + xe.com reference = **2.9% all-in**), the nominal margins look similar — but per the payments team, HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference, so the true all-in cost comes out **roughly 4 percentage points lower**. This figure is provided directly by the payments team, not derived from either source spreadsheet — see `docs/data_gaps.md`. Proposed cascade: this new channel and TCL both at L1, TCL kept for its proven stability while the new channel absorbs the cost-sensitive share of volume.
+**Payout — two new channels planned:**
+
+1. **Confirmed:** a new Alipay payout channel priced at **HTX P2P + 3%** (nominal). Compared against TCL's all-in cost (2.7% payout + 0.2% agent + xe.com reference = **2.9% all-in**), the nominal margins look close — the HTX +3% is a single fee blended directly against the live exchange rate, not a separate markup stacked on a reference rate the way TCL's structure is. Per the payments team, once the live HTX P2P rate is accounted for, the true all-in cost comes out **roughly 4 percentage points lower**. This figure is provided directly by the payments team, not derived from either source spreadsheet — see `docs/data_gaps.md`.
+2. **Candidate, rate not yet confirmed:** a second new payout channel fills the tracker's remaining "New channel" slot for September. Kept as a pipeline item, not cost-ranked, until a rate is confirmed.
+
+Proposed cascade: the confirmed HTX channel and TCL both at L1, TCL kept for its proven stability while the new channel absorbs the cost-sensitive share of volume; the second new channel joins once its rate is confirmed.
 
 **Payin:** no rate changes confirmed, but a volume ramp is targeted — see the growth targets below.
 
@@ -56,4 +61,10 @@ This is a genuinely new line of business, not a channel-cost item — kept here 
 
 These are targets as given, not figures this pack derives — flagged here rather than presented as already-achieved.
 
-The tracker's own September tab rolls the same channels forward (plus TCL WeChat payout) with all data columns blank, plus 2 open "New channel" slots — one of which the HTX payout channel above now fills.
+**Additional confirmed targets for the period:**
+
+- Activate corporate payout / WeChat & UnionPay payout, once the corresponding integration clears.
+- Grow volume into additional verticals — Adult, High Risk.
+- Finish integration and launch WeChat Payin.
+
+The tracker's own September tab rolls the same channels forward (plus TCL WeChat payout) with all data columns blank, plus 2 open "New channel" slots — both now filled by the two payout channels above.

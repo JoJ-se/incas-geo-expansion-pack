@@ -45,13 +45,17 @@ On the payin side, all three tracked channels (TCL, Fastsecurepay, Moneystery) a
 
 ---
 
-## The new China channel (Sept–Oct plan) — confirmed cheaper, once FX is accounted for
+## The new China channels (Sept–Oct plan) — one confirmed cheaper, one pending
 
-The confirmed Sept–Oct addition is a new Alipay payout channel priced at **HTX P2P + 3%** (nominal). TCL's real all-in cost is **2.7% payout + 0.2% agent fee + xe.com reference (+0%) = 2.9% all-in**. On nominal margin alone, the new channel (~3%) looks similar to or slightly above TCL's — but per the payments team, **HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference**, so the true all-in cost comes out **roughly 4 percentage points lower**.
+Two new Alipay payout channels are planned for Sept–Oct.
+
+**Channel 1 — confirmed.** Priced at **HTX P2P + 3%** (nominal). TCL's real all-in cost is **2.7% payout + 0.2% agent fee + xe.com reference (+0%) = 2.9% all-in**. On the surface the two nominal figures (~3% vs. 2.9%) look close — and that's expected, not a red flag: the HTX +3% is a **single fee blended directly against the live exchange rate**, unlike TCL's structure, which stacks a payout fee, an agent fee, and a separate xe.com reference rate. Because of that, the visible nominal margins aren't a like-for-like comparison. Per the payments team, once the live HTX P2P rate is accounted for, the true all-in cost comes out **roughly 4 percentage points lower** than TCL's.
 
 This 4pp figure is provided directly by the payments team, not derived from either source spreadsheet — it depends on live market spread that isn't in either file, so it's recorded here as a provided input rather than something this pack independently verified. See `docs/data_gaps.md`.
 
-**Proposed cascade position:** both TCL and the new channel at L1 — TCL kept for its proven stability and volume history, the new channel absorbing the cost-sensitive share once it finishes integration.
+**Channel 2 — candidate, rate not yet confirmed.** Fills the tracker's second open "New channel" slot for September. Not cost-ranked until a rate is confirmed.
+
+**Proposed cascade position:** TCL, the confirmed HTX channel, and the second candidate all sit at L1 — TCL kept for its proven stability and volume history, the HTX channel absorbing the cost-sensitive share once it finishes integration, the second channel joining once its rate is confirmed.
 
 **Growth targets tied to this change** (as provided, by end of October):
 

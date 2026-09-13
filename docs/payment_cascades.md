@@ -37,9 +37,9 @@ Two new channels (Continental, BnPay) and a renegotiated Astrum rate (5.5% → 4
 ```mermaid
 flowchart TD
     A[Betting traffic] --> L1{"L1 — Sept–Oct"}
-    L1 --> Continental["New channel — Continental — 4.5%"]
-    L1 --> BnPay["New channel — BnPay — 4.5%"]
-    L1 --> Astrum["Astrum — 4.5% — renegotiated from 5.5%"]
+    L1 --> Continental["New channel — Continental — 4.5% — limits PayIn 500"]
+    L1 --> BnPay["New channel — BnPay — 4.5% — limits PayIn 500"]
+    L1 --> Astrum["Astrum — 4.5% — renegotiated from 5.5% — limits PayIn 500"]
     A --> L2{"L2"}
     L2 --> Corytech["Corytech — 5%"]
     L2 --> Prime["Prime — 5.2% — keeps its limits-fit role"]
@@ -49,8 +49,8 @@ flowchart TD
 ```
 
 **Rationale:**
-- Continental and BnPay enter directly at L1 at 4.5% — both confirmed for Sept–Oct, both cheaper than everything in the current L1/L2 tiers.
-- Astrum's renegotiated rate (4.5%) moves it from L3 into L1, alongside the two new channels — three low-cost, stable-limit channels now lead the cascade.
+- Continental and BnPay enter directly at L1 at 4.5% with a 500 PayIn limit — both confirmed for Sept–Oct, both cheaper than everything in the current L1/L2 tiers.
+- Astrum's renegotiated rate (4.5%, also limits PayIn 500) moves it from L3 into L1, alongside the two new channels — three low-cost, stable-limit channels now lead the cascade, ahead of BigIdea.
 - Corytech and Prime move to L2: Prime keeps a strong position given its limits fit the traffic, but no longer needs to be the primary volume carrier once L1 is genuinely cheap and stable.
 - E4A stays flagged for review, unchanged from August — cost and conversion concerns are independent of the L1 rebuild.
 
@@ -130,11 +130,12 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[Payout traffic] --> L1{"L1 — Sept–Oct"}
-    L1 --> HTX["New channel — HTX P2P +3% nominal — ~4pp cheaper all-in — finishing integration"]
+    L1 --> HTX["New channel — HTX P2P +3% nominal — ~4pp cheaper all-in — confirmed, finishing integration"]
+    L1 --> Second["New channel — second candidate — rate not yet confirmed"]
     L1 --> TCL["TCL — 2.9% all-in — proven, kept for stability"]
 ```
 
-**Rationale:** TCL's nominal margin (2.7%) and the new channel's (~3%) look similar, but the new channel's live HTX P2P USDT→CNY rate runs more favourably than TCL's xe.com reference — per the payments team, the true all-in cost is roughly **4 percentage points lower**. Both channels sit at L1: the new channel absorbs the cost-sensitive share of volume, TCL stays for its proven track record and stability while the new channel finishes integration. This is a confirmed change, not a scenario to verify — see `docs/data_gaps.md` for the provenance of the 4pp figure.
+**Rationale:** TCL's all-in cost (2.7% payout + 0.2% agent = 2.9%) and the HTX channel's nominal margin (~3%) look close on the surface — that's expected, since the HTX +3% is a **single fee blended directly against the live exchange rate**, not a separate markup stacked on top of a reference rate the way TCL's structure is. That's exactly why the comparison isn't a simple "3% > 2.9%, so it's pricier": per the payments team, once the live HTX P2P rate is accounted for, the true all-in cost comes out roughly **4 percentage points lower**. A second new payout channel is also planned for Sept–Oct with its rate not yet confirmed — kept as a pipeline candidate in the cascade, not cost-ranked. All three sit at or alongside L1: the confirmed HTX channel absorbs the cost-sensitive share of volume, TCL stays for its proven track record and stability while both new channels finish integration. This is a confirmed change for the HTX channel, not a scenario to verify — see `docs/data_gaps.md` for the provenance of the 4pp figure and the second channel's status.
 
 **Tied growth targets (by end of October, as provided):** payout volume 1,500,000 → 3,000,000 USDT/month; blended margin 0.1% → 4–5%. See `docs/china_channel_review.md`.
 
@@ -145,9 +146,9 @@ flowchart TD
 | GEO | Vertical | Change | Why |
 |---|---|---|---|
 | Turkey | Betting | Corrected current cascade to L1: BigIdea / L2: Corytech, Prime / L3: the rest | Reflects how the cascade is actually operated, per the payments team, not the tracker's raw tags |
-| Turkey | Betting | Sept–Oct: add Continental + BnPay (4.5%) to L1, renegotiate Astrum to 4.5% and move it to L1 | Builds a genuinely low-cost, stable-limit L1 tier |
+| Turkey | Betting | Sept–Oct: add Continental + BnPay (4.5%, limits PayIn 500) to L1, renegotiate Astrum to 4.5% (limits PayIn 500) and move it to L1 ahead of BigIdea | Builds a genuinely low-cost, stable-limit L1 tier |
 | Turkey | Betting | Keep E4A flagged for review | Only channel with a known conversion problem (50–70%), unchanged by the L1 rebuild |
 | Turkey | Forex / Adult | No reorder — structural flags only | Single-channel dependency (Forex); not yet launchable (Adult) |
 | China | Payin | Rank TCL first once traffic launches | Cheapest and only channel with conversion data |
-| China | Payin | Don't cost-rank Fastsecurepay yet | Rate direction unconfirmed |
-| China | Payout | Sept–Oct: add HTX channel at L1 alongside TCL | Confirmed ~4pp cheaper all-in once live FX is accounted for, per the payments team |
+| China | Payin | Don't cost-rank the second payin channel yet | Rate direction unconfirmed — see `docs/data_gaps.md` |
+| China | Payout | Sept–Oct: add HTX channel (confirmed) and a second new channel (rate TBC) at L1 alongside TCL | HTX channel confirmed ~4pp cheaper all-in once live FX is accounted for; second channel pending rate confirmation |

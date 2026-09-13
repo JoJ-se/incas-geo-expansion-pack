@@ -16,7 +16,16 @@ This document only contains what has actually been confirmed, or explicit target
 | Cascade position | L1, alongside TCL — see `docs/payment_cascades.md` |
 | Cost impact | **Confirmed cheaper, ~4 percentage points all-in**, versus TCL's 2.9% all-in (2.7% payout + 0.2% agent). Nominal margins look similar, but HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference. This 4pp figure is provided directly by the payments team, not derived from either source spreadsheet — see `docs/data_gaps.md`. |
 
-This fills one of the two "New channel" placeholder slots in the tracker's September China tab. The second slot remains open.
+This fills one of the two "New channel" placeholder slots in the tracker's September China tab.
+
+**Second new payout channel — candidate, rate not yet confirmed**
+
+| Field | Value |
+|---|---|
+| Method | Alipay payout |
+| Status | Candidate for Sept–Oct; fills the second "New channel" slot |
+| Rate | Not yet confirmed |
+| Cascade position | Pipeline — not cost-ranked until a rate is confirmed, see `docs/payment_cascades.md` |
 
 **Growth targets, by end of October (provided targets):**
 
@@ -26,24 +35,32 @@ This fills one of the two "New channel" placeholder slots in the tracker's Septe
 | Payin volume | 0 | ~50,000 USDT/day (≈1,500,000 USDT/mo) |
 | Blended margin | 0.1% | 4–5% |
 
+**Additional confirmed Sept–Oct targets:**
+
+| Item | Status | Note |
+|---|---|---|
+| Activate corporate payout / WeChat & UnionPay payout | Target | Once the corresponding integration clears |
+| Growth volume for additional verticals — Adult, High Risk | Target | New vertical growth planned for Sept–Oct |
+| Finish integration and launch WeChat Payin | Target | — |
+
 ---
 
-## China — pending
+## China — pending / in progress
 
-- Second "New channel" slot (September tab) — no candidate confirmed yet.
-- TCL's three in-integration lines (corporate payout, WeChat/UnionPay payin, Adult payin) — status is "in integration" with no rate published; not part of this roadmap until they clear that stage.
+- Corporate payout / WeChat & UnionPay payin — status is "in integration" with no rate published yet.
+- Adult payin — status is "in integration" with no rate published yet; not part of the cost tables until it clears that stage.
 
 ---
 
 ## Turkey — confirmed
 
-**Two new channels for the Betting cascade:**
+**Two new channels for the Betting cascade, joining a renegotiated Astrum at L1:**
 
-| Channel | PayIn | Cascade position | Status |
-|---|---|---|---|
-| Continental (new) | 4.5% | L1 | Confirmed |
-| BnPay (new) | 4.5% | L1 | Confirmed |
-| Astrum | 4.5% (renegotiated from 5.5%) | Moves to L1 | Confirmed |
+| Channel | PayIn | Limits PayIn | Cascade position | Status |
+|---|---|---|---|---|
+| Continental (new) | 4.5% | 500 | L1 | Confirmed |
+| BnPay (new) | 4.5% | 500 | L1 | Confirmed |
+| Astrum | 4.5% (renegotiated from 5.5%) | 500 | Moves to L1, ahead of BigIdea | Confirmed |
 
 Together these three form the proposed L1 tier for September–October — see `docs/payment_cascades.md` for the full cascade and `docs/turkey_channel_review.md` for the rate table.
 

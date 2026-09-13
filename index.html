@@ -206,15 +206,17 @@
 
       <div class="panel">
         <div class="panel-head"><h3>September–October (plan)</h3><span class="period-chip plan">Plan</span></div>
-        <div class="panel-sub">Astrum's rate is renegotiated down for this plan; two new L1 channels added (see cascade below).</div>
+        <div class="panel-sub">Continental and BnPay join as new L1 channels; Astrum's rate is renegotiated down and moves to L1 alongside them, ahead of BigIdea.</div>
 
+        <div class="bar-row"><div class="bar-label"><span class="name">New channel — Continental <span class="tag future">limits PayIn 500</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:60%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">New channel — BnPay <span class="tag future">limits PayIn 500</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:60%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">Astrum <span class="tag future">renegotiated · limits PayIn 500</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:60%"></div></div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">BigIdea <span class="tag idle">idle</span></span><span class="val">4.75%</span></div><div class="bar-track"><div class="bar-fill future" style="width:63%"></div></div></div>
-        <div class="bar-row"><div class="bar-label"><span class="name">Astrum <span class="tag future">renegotiated</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:60%"></div></div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">Corytech (Betting) <span class="tag idle">idle</span></span><span class="val">5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:67%"></div></div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">Prime</span><span class="val">5.2%</span></div><div class="bar-track"><div class="bar-fill future" style="width:69%"></div></div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">E4A <span class="tag expensive">conv. 50–70%</span></span><span class="val">5.5%</span></div><div class="bar-track"><div class="bar-fill expensive" style="width:73%"></div></div></div>
 
-        <div class="callout"><strong>Finding:</strong> a strong L1 tier for Sept–Oct — low rates paired with stable, low limits, once the two new channels (Continental, BnPay) join Astrum at the front of the cascade. See the cascade below.</div>
+        <div class="callout"><strong>Finding:</strong> a strong L1 tier for Sept–Oct — Continental, BnPay, and a renegotiated Astrum lead at 4.5% with stable, low limits (PayIn 500), ahead of BigIdea and everything else in the cascade today. See the cascade below.</div>
       </div>
 
     </div>
@@ -251,9 +253,9 @@
       <div class="cascade-flow">
         <div class="tier">
           <div class="tier-label">L1</div>
-          <div class="chan-card future"><div class="cname">New channel — Continental</div><div class="cmeta">4.5%</div></div>
-          <div class="chan-card future"><div class="cname">New channel — BnPay</div><div class="cmeta">4.5%</div></div>
-          <div class="chan-card future"><div class="cname">Astrum</div><div class="cmeta">4.5% · renegotiated</div></div>
+          <div class="chan-card future"><div class="cname">New channel — Continental</div><div class="cmeta">4.5% · limits PayIn 500</div></div>
+          <div class="chan-card future"><div class="cname">New channel — BnPay</div><div class="cmeta">4.5% · limits PayIn 500</div></div>
+          <div class="chan-card future"><div class="cname">Astrum</div><div class="cmeta">4.5% · renegotiated · limits PayIn 500</div></div>
         </div>
         <div class="arrow">→</div>
         <div class="tier">
@@ -295,7 +297,7 @@
             <tr><td>New channel</td><td>0%</td><td>—</td><td>HTX P2P +3%</td><td><strong>~3% nominal</strong></td></tr>
           </table>
         </div>
-        <div class="callout"><strong>Finding:</strong> a strong new L1 for China payout at a lower cost. Nominal margins look similar (2.9% vs. ~3%), but HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference — the all-in cost comes out roughly <strong>4 percentage points lower</strong>. Provided directly by the payments team; not derived from either source spreadsheet.</div>
+        <div class="callout"><strong>Finding:</strong> a strong new L1 for China payout at a lower cost. Nominally the new channel's ~3% sits close to TCL's 2.9% all-in — because the +3% is a single fee blended directly against the live exchange rate, not stacked on top of a separate reference-rate markup the way TCL's payout+agent+xe.com structure is. That's exactly why the true all-in cost still comes out roughly <strong>4 percentage points lower</strong> once the favourable live exchange is accounted for. Provided directly by the payments team; not derived from either source spreadsheet.</div>
       </div>
     </div>
 
@@ -309,7 +311,8 @@
         <div class="arrow">→</div>
         <div class="tier">
           <div class="tier-label">L1 — Sept–Oct (desired)</div>
-          <div class="chan-card future"><div class="cname">New channel</div><div class="cmeta">~4pp cheaper all-in · finishing integration</div></div>
+          <div class="chan-card future"><div class="cname">New channel — HTX P2P</div><div class="cmeta">~3% nominal, ~4pp cheaper all-in · confirmed, finishing integration</div></div>
+          <div class="chan-card pending"><div class="cname">New channel — second candidate</div><div class="cmeta">rate not yet confirmed</div></div>
           <div class="chan-card live"><div class="cname">TCL</div><div class="cmeta">2.9% all-in · proven, kept for stability</div></div>
         </div>
       </div>
@@ -359,14 +362,14 @@
     <div class="geo-cols">
       <div class="panel">
         <div class="panel-head"><h3>August</h3><span class="period-chip aug">Actual</span></div>
-        <div class="kpi" style="margin-bottom:16px;"><div class="label">Live payin volume</div><div class="value" style="color:var(--idle)">0%</div><div class="sub">TCL, Fastsecurepay and Moneystery all pre-launch</div></div>
+        <div class="kpi" style="margin-bottom:16px;"><div class="label">Live payin volume</div><div class="value" style="color:var(--idle)">0%</div><div class="sub">all payin channels pre-launch</div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">TCL <span class="tag idle">idle · conv. 90%</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:47%"></div></div></div>
         <div class="bar-row"><div class="bar-label"><span class="name">Moneystery <span class="tag pending">Adult-only · idle</span></span><span class="val">9.5%</span></div><div class="bar-track"><div class="bar-fill pending" style="width:100%"></div></div></div>
       </div>
       <div class="panel">
         <div class="panel-head"><h3>September–October</h3><span class="period-chip plan">Plan</span></div>
         <div class="kpi" style="margin-bottom:16px;"><div class="label">Target daily volume</div><div class="value" style="color:var(--future)">~50,000 <span style="font-size:12px;font-weight:500;color:var(--text-muted)">USDT/day</span></div><div class="sub">≈ 1,500,000 USDT/month by end of October</div></div>
-        <div class="callout"><strong>Finding:</strong> TCL remains the clear default once traffic launches — cheapest (4.5%) and only channel with conversion data (90%). Fastsecurepay stays unranked until its rate is confirmed (see <code>docs/data_gaps.md</code>).</div>
+        <div class="callout"><strong>Finding:</strong> TCL remains the clear default once traffic launches — cheapest (4.5%) and only channel with conversion data (90%).</div>
       </div>
     </div>
   </section>
@@ -378,12 +381,15 @@
       <table>
         <tr><th>GEO</th><th>Item</th><th>Status</th><th>Note</th></tr>
         <tr><td>Turkey</td><td>New channels — Continental, BnPay (both 4.5%)</td><td><span class="tag future">Confirmed</span></td><td>Join Astrum (renegotiated to 4.5%) at L1</td></tr>
-        <tr><td>Turkey</td><td>Astrum rate renegotiated 5.5% → 4.5%</td><td><span class="tag future">Confirmed</span></td><td>Moves Astrum into the L1 tier</td></tr>
         <tr><td>China</td><td>New Alipay payout channel — HTX P2P +3%</td><td><span class="tag future">Confirmed</span></td><td>~4pp cheaper all-in than TCL; finishing integration</td></tr>
+        <tr><td>China</td><td>Second new payout channel</td><td><span class="tag pending">Candidate</span></td><td>Rate not yet confirmed</td></tr>
         <tr><td>China</td><td>Payout volume target</td><td><span class="tag future">Target</span></td><td>1,500,000 → 3,000,000 USDT/month by end of October</td></tr>
         <tr><td>China</td><td>Payin volume target</td><td><span class="tag future">Target</span></td><td>0 → ~50,000 USDT/day by end of October</td></tr>
         <tr><td>China</td><td>Blended margin target</td><td><span class="tag future">Target</span></td><td>0.1% → 4–5% by end of October</td></tr>
-        <tr><td>China</td><td>TCL corporate payout / WeChat &amp; UnionPay payin / Adult payin</td><td><span class="tag neutral">In integration</span></td><td>No rate published yet</td></tr>
+        <tr><td>China</td><td>Corporate payout / WeChat &amp; UnionPay payin</td><td><span class="tag neutral">In integration</span></td><td>No rate published yet</td></tr>
+        <tr><td>China</td><td>Activate corporate payout / WeChat &amp; UnionPay payout</td><td><span class="tag future">Target</span></td><td>Once integration clears</td></tr>
+        <tr><td>China</td><td>Growth volume for additional verticals — Adult, High Risk</td><td><span class="tag future">Target</span></td><td>New vertical growth for Sept–Oct</td></tr>
+        <tr><td>China</td><td>Finish integration and launch WeChat Payin</td><td><span class="tag future">Target</span></td><td>—</td></tr>
       </table>
     </div>
   </section>

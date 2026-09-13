@@ -24,9 +24,15 @@ Every unresolved discrepancy or missing figure found while building this pack, i
 
 ## 3a. Continental and BnPay — confirmed for cascade, not yet in the standard rate card
 
-- Both channels are confirmed at 4.5% PayIn for Sept–Oct cascade placement, provided directly by the payments team.
+- Both channels are confirmed at 4.5% PayIn with a 500 PayIn limit for Sept–Oct cascade placement, provided directly by the payments team.
 - Continental doesn't appear in either of this pack's two source spreadsheets at all. BnPay appears in the broader multi-GEO rate card as a paused candidate (4.5%/7.5%, "Start 10/09") that was previously out of scope per this pack's active-channels-only rule — it's now in scope because it's a confirmed Sept–Oct addition.
-- **Needs:** both channels added to the standard rate card / channel tracker with full terms (limits, settlement, FX source) once integration is further along.
+- **Needs:** both channels added to the standard rate card / channel tracker with full terms (max limits, settlement, FX source) once integration is further along.
+
+## 3b. China's second new payout channel — candidate, rate not yet confirmed
+
+- A second new Alipay payout channel fills the tracker's remaining open "New channel" slot for September, alongside the confirmed HTX channel (see item 5 below).
+- No rate has been confirmed for this channel. It's carried in `docs/payment_cascades.md` and `docs/roadmap_sept_oct_2026.md` as a pipeline item, not cost-ranked, until a rate arrives.
+- **Needs:** rate confirmation from the payments team.
 
 ## 4. Conversion-rate (FTD/STD) coverage is thin
 
@@ -36,7 +42,7 @@ Every unresolved discrepancy or missing figure found while building this pack, i
 
 ## 5. New China channel (HTX P2P +3%) — cost confirmed, but by input rather than by source spreadsheet
 
-- **Resolved as of this update:** the payments team has confirmed the new channel's all-in cost is roughly **4 percentage points lower** than TCL's (2.9% all-in), because HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference.
+- **Resolved as of this update:** the payments team has confirmed this channel's all-in cost is roughly **4 percentage points lower** than TCL's (2.9% all-in). The nominal margins look close (HTX ~3% vs. TCL 2.9%) because the HTX +3% is a single fee blended directly against the live exchange rate, not stacked on a separate reference-rate markup the way TCL's structure is — that's why the visible nominal figures aren't a like-for-like comparison, and the true all-in gap is larger than it first appears.
 - Flagged here for provenance, not as an open question: this 4pp figure, and the related growth targets (payout volume 1.5M→3M, payin 0→50k/day, margin 0.1%→4–5%), are **provided directly by the payments team in this session**, not derived from either of the two original source spreadsheets. Treat them with the same confidence as a direct team statement, not as independently verified against a live quote by this pack.
 - See `docs/roadmap_sept_oct_2026.md` and `docs/cost_analysis.md`.
 

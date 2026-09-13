@@ -49,24 +49,26 @@ Traffic is attempted on BigIdea first; most successful volume lands on Prime at 
 
 ## September–October 2026 (plan)
 
-Confirmed changes for this period:
+Confirmed changes for this period, sorted cheapest first:
 
-| Channel | PayIn | Notes |
-|---|---|---|
-| BigIdea | 4.75% | idle, unchanged |
-| Astrum | **4.5%** (renegotiated from 5.5%) | moves into the L1 tier |
-| Corytech (Betting) | 5% | unchanged |
-| Prime | 5.2% | unchanged |
-| E4A | 5.5% (base) | conv. 50–70% unchanged, still flagged |
+| Channel | PayIn | Limits PayIn | Notes |
+|---|---|---|---|
+| Continental (new) | 4.5% | 500 | Confirmed for L1 |
+| BnPay (new) | 4.5% | 500 | Confirmed for L1 |
+| Astrum | **4.5%** (renegotiated from 5.5%) | 500 | Moves into L1, ahead of BigIdea |
+| BigIdea | 4.75% | — | idle, unchanged |
+| Corytech (Betting) | 5% | — | unchanged |
+| Prime | 5.2% | — | unchanged |
+| E4A | 5.5% (base) | — | conv. 50–70% unchanged, still flagged |
 
-Plus two new channels confirmed for the cascade: **Continental** (4.5%) and **BnPay** (4.5%). Neither appears in this rate table because their PayIn figures were confirmed only for cascade placement, not yet added to the standard rate card — see `docs/data_gaps.md`.
+Continental and BnPay are confirmed at 4.5% PayIn with a 500 PayIn limit for cascade placement — full rate-card terms (max limits, settlement, FX source) aren't in the standard rate card yet, see `docs/data_gaps.md`.
 
 **Desired cascade, September–October:**
 
 | Tier | Channel(s) |
 |---|---|
-| L1 | Continental (new), BnPay (new), Astrum (4.5%, renegotiated) |
+| L1 | Continental (new, limits PayIn 500), BnPay (new, limits PayIn 500), Astrum (4.5%, renegotiated, limits PayIn 500) |
 | L2 | Corytech, Prime |
 | L3 | the rest |
 
-**Finding:** a strong L1 — three channels at 4.5% with stable, low limits — ahead of everything currently in the August cascade.
+**Finding:** a strong L1 — three channels at 4.5% with stable, low limits (PayIn 500) — ahead of BigIdea and everything else in the August cascade.
