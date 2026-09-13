@@ -12,7 +12,7 @@ This document only contains what has actually been confirmed, or explicit target
 |---|---|
 | Method | Alipay payout |
 | Cost | HTX P2P rate + 3% margin (nominal) |
-| Status | Confirmed for Sept–Oct 2026; finishing integration |
+| Status | Confirmed for Sept–Oct 2026; starting integration |
 | Cascade position | L1, alongside TCL — see `docs/payment_cascades.md` |
 | Cost impact | **Confirmed cheaper, ~4 percentage points all-in**, versus TCL's 2.9% all-in (2.7% payout + 0.2% agent). Nominal margins look similar, but HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference. This 4pp figure is provided directly by the payments team, not derived from either source spreadsheet — see `docs/data_gaps.md`. |
 

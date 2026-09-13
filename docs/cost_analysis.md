@@ -55,7 +55,7 @@ This 4pp figure is provided directly by the payments team, not derived from eith
 
 **Channel 2 — candidate, rate not yet confirmed.** Fills the tracker's second open "New channel" slot for September. Not cost-ranked until a rate is confirmed.
 
-**Proposed cascade position:** TCL, the confirmed HTX channel, and the second candidate all sit at L1 — TCL kept for its proven stability and volume history, the HTX channel absorbing the cost-sensitive share once it finishes integration, the second channel joining once its rate is confirmed.
+**Proposed cascade position:** TCL, the confirmed HTX channel, and the second candidate all sit at L1 — TCL kept for its proven stability and volume history, the HTX channel absorbing the cost-sensitive share once it starts integration, the second channel joining once its rate is confirmed.
 
 **Growth targets tied to this change** (as provided, by end of October):
 

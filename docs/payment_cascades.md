@@ -130,12 +130,12 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[Payout traffic] --> L1{"L1 — Sept–Oct"}
-    L1 --> HTX["New channel — HTX P2P +3% nominal — ~4pp cheaper all-in — confirmed, finishing integration"]
+    L1 --> HTX["New channel — HTX P2P +3% nominal — ~4pp cheaper all-in — confirmed, starting integration"]
     L1 --> Second["New channel — second candidate — rate not yet confirmed"]
     L1 --> TCL["TCL — 2.9% all-in — proven, kept for stability"]
 ```
 
-**Rationale:** TCL's all-in cost (2.7% payout + 0.2% agent = 2.9%) and the HTX channel's nominal margin (~3%) look close on the surface — that's expected, since the HTX +3% is a **single fee blended directly against the live exchange rate**, not a separate markup stacked on top of a reference rate the way TCL's structure is. That's exactly why the comparison isn't a simple "3% > 2.9%, so it's pricier": per the payments team, once the live HTX P2P rate is accounted for, the true all-in cost comes out roughly **4 percentage points lower**. A second new payout channel is also planned for Sept–Oct with its rate not yet confirmed — kept as a pipeline candidate in the cascade, not cost-ranked. All three sit at or alongside L1: the confirmed HTX channel absorbs the cost-sensitive share of volume, TCL stays for its proven track record and stability while both new channels finish integration. This is a confirmed change for the HTX channel, not a scenario to verify — see `docs/data_gaps.md` for the provenance of the 4pp figure and the second channel's status.
+**Rationale:** TCL's all-in cost (2.7% payout + 0.2% agent = 2.9%) and the HTX channel's nominal margin (~3%) look close on the surface — that's expected, since the HTX +3% is a **single fee blended directly against the live exchange rate**, not a separate markup stacked on top of a reference rate the way TCL's structure is. That's exactly why the comparison isn't a simple "3% > 2.9%, so it's pricier": per the payments team, once the live HTX P2P rate is accounted for, the true all-in cost comes out roughly **4 percentage points lower**. A second new payout channel is also planned for Sept–Oct with its rate not yet confirmed — kept as a pipeline candidate in the cascade, not cost-ranked. All three sit at or alongside L1: the confirmed HTX channel absorbs the cost-sensitive share of volume, TCL stays for its proven track record and stability while both new channels start integration. This is a confirmed change for the HTX channel, not a scenario to verify — see `docs/data_gaps.md` for the provenance of the 4pp figure and the second channel's status.
 
 **Tied growth targets (by end of October, as provided):** payout volume 1,500,000 → 3,000,000 USDT/month; blended margin 0.1% → 4–5%. See `docs/china_channel_review.md`.
 
