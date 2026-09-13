@@ -68,7 +68,7 @@ Continental and BnPay are confirmed at 4.5% PayIn with a 500 PayIn limit for cas
 | Tier | Channel(s) |
 |---|---|
 | L1 | Continental (new, limits PayIn 500), BnPay (new, limits PayIn 500), Astrum (4.5%, renegotiated, limits PayIn 500) |
-| L2 | Corytech, Prime |
+| L2 | BigIdea (4.75%, idle), Corytech, Prime |
 | L3 | the rest |
 
 **Finding:** a strong L1 — three channels at 4.5% with stable, low limits (PayIn 500) — ahead of BigIdea and everything else in the August cascade.

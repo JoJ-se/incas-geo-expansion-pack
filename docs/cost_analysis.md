@@ -66,15 +66,15 @@ Provided by the payments team to illustrate the 4pp gap concretely. Rates on the
 **Scenario A — TCL:** cost to execute = 10,000 ÷ 6.70 = 1,492.54 USDT, plus the 2.7% payout fee (270 ÷ 6.70 = 40.30 USDT), plus the 0.2% agent fee (20 ÷ 6.70 = 2.99 USDT) = **1,535.83 USDT total spent**.
 Margin = 1,537.31 − 1,535.83 = **1.48 USDT (~0.1%)**.
 
-**Scenario B — new channel (HTX +3%, 0% fee, no agent fee):** the exchange rate itself carries the markup — 6.65 × 1.03 = 6.8495. Cost to execute = 10,000 ÷ 6.8495 = **1,460.03 USDT total spent**.
-Margin = 1,537.31 − 1,460.03 = **77.28 USDT (~5.2%)**.
+**Scenario B — new channel (HTX +3%, 0% fee, no agent fee):** the exchange rate itself carries the markup — 6.65 × 1.03 = 6.8495. Cost to execute = 10,000 ÷ 6.8495 = **1,459.96 USDT total spent**.
+Margin = 1,537.31 − 1,459.96 = **77.35 USDT (~5.0%)**.
 
 | | Received from Inwizo | Cost to execute | Margin (USDT) | Margin (%) |
 |---|---|---|---|---|
 | Scenario A — TCL | 1,537.31 | 1,535.83 | 1.48 | ~0.1% |
-| Scenario B — New channel (HTX) | 1,537.31 | 1,460.03 | **77.28** | **~5.2%** |
+| Scenario B — New channel (HTX) | 1,537.31 | 1,459.96 | **77.35** | **~5.0%** |
 
-**Finding:** switching to the new channel increases margin roughly **50×** under the same terms with Inwizo (0.1% vs. ~5.2%). The difference comes from the FX spread between xe.com (what Inwizo pays) and HTX (what Incas pays the channel), plus the absence of an agent fee on the new channel — TCL carries no FX spread since both sides use xe.com, and also carries the 0.2% agent fee the new channel doesn't. This example is provided by the payments team, using rates from one specific day — the exact margin will move with live xe.com/HTX spread, but the mechanism (FX-spread capture + no agent fee) is structural, not a one-off.
+**Finding:** switching to the new channel increases margin roughly **50×** under the same terms with Inwizo (0.1% vs. ~5.0%). The difference comes from the FX spread between xe.com (what Inwizo pays) and HTX (what Incas pays the channel), plus the absence of an agent fee on the new channel — TCL carries no FX spread since both sides use xe.com, and also carries the 0.2% agent fee the new channel doesn't. This example is provided by the payments team, using rates from one specific day — the exact margin will move with live xe.com/HTX spread, but the mechanism (FX-spread capture + no agent fee) is structural, not a one-off.
 
 **Growth targets tied to this change** (as provided, by end of October):
 

@@ -41,6 +41,7 @@ flowchart TD
     L1 --> BnPay["New channel — BnPay — 4.5% — limits PayIn 500"]
     L1 --> Astrum["Astrum — 4.5% — renegotiated from 5.5% — limits PayIn 500"]
     A --> L2{"L2"}
+    L2 --> BigIdea["BigIdea — 4.75% — idle"]
     L2 --> Corytech["Corytech — 5%"]
     L2 --> Prime["Prime — 5.2% — keeps its limits-fit role"]
     A --> L3["L3 — the rest"]
@@ -51,7 +52,8 @@ flowchart TD
 **Rationale:**
 - Continental and BnPay enter directly at L1 at 4.5% with a 500 PayIn limit — both confirmed for Sept–Oct, both cheaper than everything in the current L1/L2 tiers.
 - Astrum's renegotiated rate (4.5%, also limits PayIn 500) moves it from L3 into L1, alongside the two new channels — three low-cost, stable-limit channels now lead the cascade, ahead of BigIdea.
-- Corytech and Prime move to L2: Prime keeps a strong position given its limits fit the traffic, but no longer needs to be the primary volume carrier once L1 is genuinely cheap and stable.
+- BigIdea moves from its old solo L1 spot to L2, ahead of Corytech and Prime on cost (4.75% vs. 5% and 5.2%) — still idle, still worth investigating, but no longer the cascade's sole first line now that three cheaper channels exist.
+- Corytech and Prime stay in L2 behind BigIdea: Prime keeps a strong position given its limits fit the traffic, but no longer needs to be the primary volume carrier once L1 is genuinely cheap and stable.
 - E4A stays flagged for review, unchanged from August — cost and conversion concerns are independent of the L1 rebuild.
 
 **Finding:** a strong L1 for September–October — low rates paired with stable, low limits — ahead of everything currently in the August cascade.

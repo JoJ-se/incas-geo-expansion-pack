@@ -57,7 +57,7 @@ incas-geo-expansion-pack/
 - **`docs/cost_analysis.md`** is the "why does this cost so much" narrative — which channels are cheapest, which carry the volume, and where those two things don't line up.
 - **`docs/payment_cascades.md`** is the largest document in the pack: it shows the current cascade lines as tracked today, and proposes a rebuilt cascade ordered by cost with a conversion-rate check where that data exists.
 - **`docs/geo_progress_comparison.md`** puts Turkey and China side by side — active channels, live volume, blended cost, and the profitability gain from routing to the cheapest proven channel, computed from real volume rather than a projected target.
-- **`docs/roadmap_sept_oct_2026.md`** only contains what's actually been confirmed for September–October 2026 (currently: one new China channel). Everything else is explicitly marked pending rather than guessed.
+- **`docs/roadmap_sept_oct_2026.md`** only contains what's actually been confirmed for September–October 2026 — currently two new China payout channels (one confirmed, one candidate), China's volume/margin targets, and Turkey's three new L1 channels. Volume targets for Turkey are still marked pending rather than guessed.
 - **`docs/data_gaps.md`** lists every place the two source spreadsheets didn't agree, or a figure wasn't available — check here before treating any number as final.
 - **`data/*.csv`** are the raw structured extracts behind every table in the docs, so any figure can be traced back to source.
 
