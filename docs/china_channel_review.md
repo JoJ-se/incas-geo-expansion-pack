@@ -40,6 +40,20 @@ This is a genuinely new line of business, not a channel-cost item — kept here 
 
 ---
 
-## September (per tracker)
+## September–October 2026 (plan)
 
-The tracker rolls the same channels forward (plus TCL WeChat payout) into September with all data columns blank, plus 2 open "New channel" slots. One of those slots is now confirmed — see `docs/roadmap_sept_oct_2026.md`.
+**Payout:** a new Alipay payout channel is confirmed, priced at **HTX P2P + 3%** (nominal). Compared against TCL's all-in cost (2.7% payout + 0.2% agent + xe.com reference = **2.9% all-in**), the nominal margins look similar — but per the payments team, HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference, so the true all-in cost comes out **roughly 4 percentage points lower**. This figure is provided directly by the payments team, not derived from either source spreadsheet — see `docs/data_gaps.md`. Proposed cascade: this new channel and TCL both at L1, TCL kept for its proven stability while the new channel absorbs the cost-sensitive share of volume.
+
+**Payin:** no rate changes confirmed, but a volume ramp is targeted — see the growth targets below.
+
+**Growth targets (by end of October), as provided:**
+
+| Metric | August | End of October (target) |
+|---|---|---|
+| Payout volume | 1,500,000 USDT/mo | 3,000,000 USDT/mo |
+| Payin volume | 0 | ~50,000 USDT/day (≈1,500,000 USDT/mo) |
+| Blended margin | 0.1% | 4–5% |
+
+These are targets as given, not figures this pack derives — flagged here rather than presented as already-achieved.
+
+The tracker's own September tab rolls the same channels forward (plus TCL WeChat payout) with all data columns blank, plus 2 open "New channel" slots — one of which the HTX payout channel above now fills.

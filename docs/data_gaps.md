@@ -19,8 +19,14 @@ Every unresolved discrepancy or missing figure found while building this pack, i
 ## 3. Turkey Sept–Oct 2026 targets — not provided
 
 - The tracker's September tab exists but is blank (channel names only, no volume/status/AFU data).
-- No volume targets or new-channel candidates have been supplied for Turkey's Sept–Oct plan.
-- `docs/roadmap_sept_oct_2026.md` tracks this as pending; `docs/geo_progress_comparison.md` deliberately uses a per-$100k cost sensitivity instead of a volume projection so it doesn't depend on this gap being closed.
+- New-channel candidates (Continental, BnPay) and Astrum's renegotiated rate are now confirmed — see `docs/roadmap_sept_oct_2026.md`. **Volume targets are still not provided.**
+- `docs/geo_progress_comparison.md` deliberately uses a per-$100k cost sensitivity instead of a volume projection so it doesn't depend on this gap being closed.
+
+## 3a. Continental and BnPay — confirmed for cascade, not yet in the standard rate card
+
+- Both channels are confirmed at 4.5% PayIn for Sept–Oct cascade placement, provided directly by the payments team.
+- Continental doesn't appear in either of this pack's two source spreadsheets at all. BnPay appears in the broader multi-GEO rate card as a paused candidate (4.5%/7.5%, "Start 10/09") that was previously out of scope per this pack's active-channels-only rule — it's now in scope because it's a confirmed Sept–Oct addition.
+- **Needs:** both channels added to the standard rate card / channel tracker with full terms (limits, settlement, FX source) once integration is further along.
 
 ## 4. Conversion-rate (FTD/STD) coverage is thin
 
@@ -28,10 +34,16 @@ Every unresolved discrepancy or missing figure found while building this pack, i
 - China: only **TCL** (both payin at 90%, and payout at 85/85%) has conversion data. Fastsecurepay and Moneystery have none.
 - In `docs/payment_cascades.md`, missing conversion data is treated as "unmeasured, monitor once live" — it is **not** treated as a failure, and a channel is never penalized in the proposed cascade for lacking this data. Only E4A is flagged, because it has data and that data is below the review floor.
 
-## 5. New China channel (HTX P2P +3%) — cost not verified against live quotes
+## 5. New China channel (HTX P2P +3%) — cost confirmed, but by input rather than by source spreadsheet
 
-- The rate structure (HTX P2P + 3%, USDT→CNY) is confirmed for Sept–Oct, but the actual cost relative to TCL's current 2.7% effective payout margin depends on live HTX P2P pricing vs. TCL's xe.com reference at settlement time.
-- Not yet checked. See `docs/roadmap_sept_oct_2026.md` and `docs/cost_analysis.md`.
+- **Resolved as of this update:** the payments team has confirmed the new channel's all-in cost is roughly **4 percentage points lower** than TCL's (2.9% all-in), because HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference.
+- Flagged here for provenance, not as an open question: this 4pp figure, and the related growth targets (payout volume 1.5M→3M, payin 0→50k/day, margin 0.1%→4–5%), are **provided directly by the payments team in this session**, not derived from either of the two original source spreadsheets. Treat them with the same confidence as a direct team statement, not as independently verified against a live quote by this pack.
+- See `docs/roadmap_sept_oct_2026.md` and `docs/cost_analysis.md`.
+
+## 5a. Prime's limits/traffic-fit rationale — provided context, not in either spreadsheet
+
+- Neither source spreadsheet states that Prime's settlement limits are lower/more stable than other Turkey channels, or that Incas' Turkey traffic is small-ticket by design. This context was provided directly by the payments team and is now reflected in `docs/cost_analysis.md`, `docs/turkey_channel_review.md`, and `docs/payment_cascades.md`.
+- It changes the *interpretation* of the cost gap (a deliberate limits/stability trade-off, not neglect of a cheaper channel) but not the underlying numbers, which remain sourced from the two spreadsheets.
 
 ## 6. Broader rate-card candidates excluded by design, not by oversight
 

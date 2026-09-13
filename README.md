@@ -72,8 +72,8 @@ incas-geo-expansion-pack/
 | Cost analysis | Complete |
 | Payment cascades (current + proposed) | Complete |
 | Turkey vs. China progress &amp; profitability comparison | Complete |
-| China Sept–Oct 2026 plan | Partial — one confirmed channel addition |
-| Turkey Sept–Oct 2026 plan | Pending — targets not yet provided |
+| China Sept–Oct 2026 plan | Confirmed — new payout channel, volume &amp; margin targets |
+| Turkey Sept–Oct 2026 plan | Cascade confirmed (Continental, BnPay, renegotiated Astrum); volume targets still pending |
 
 ---
 

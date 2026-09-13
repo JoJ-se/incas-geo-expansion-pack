@@ -29,12 +29,44 @@ Raw extract: [`data/turkey_channels_august.csv`](../data/turkey_channels_august.
 ## What this actually shows
 
 - **6 channels, 8 tracked lines, but only 2 are carrying real volume** — Prime and E4A. Everything else is Live and AFU-approved but sitting at zero.
-- **The cheapest channel (BigIdea, 4.75%) is one of the idle ones.** The channel carrying nearly all the volume (Prime) is priced 0.45 points above it. See `docs/cost_analysis.md` for what that costs in practice.
+- **The cheapest channel (BigIdea, 4.75%) is one of the idle ones.** The channel carrying 93% of tracked volume (Prime) is priced 0.45pp above it — but this is not simple inefficiency: **Prime's settlement limits are lower and more stable than BigIdea's or any other live channel's**, and Turkey's traffic is small-ticket by design. That traffic prioritises low, stable limits over the lowest rate, which is why Prime carries the load despite sitting in L2 of the actual operating cascade (see below) rather than L1. See `docs/cost_analysis.md`.
 - **Corytech-Adult is the one line not yet fully switched on** (AFU = No) — it's the most expensive line in the table (6% PayIn, 3.5% settlement) and also the newest vertical, so cost here reflects opening a new line of business rather than routing inefficiency.
 - **E4A is the only channel with conversion data on file, and it's weak** (50–70%) relative to what a Betting channel should clear — flagged for follow-up in `docs/payment_cascades.md`.
 
+## The actual operating cascade (August)
+
+The tracker's raw L1/L2 tags don't reflect how the cascade is actually run day to day. As confirmed by the payments team, the real order is:
+
+| Tier | Channel(s) |
+|---|---|
+| L1 | BigIdea |
+| L2 | Corytech, **Prime** |
+| L3 | Favori, E4A, Astrum |
+
+Traffic is attempted on BigIdea first; most successful volume lands on Prime at L2, consistent with the limits/traffic-fit point above. Full cascade diagrams (current and proposed) are in `docs/payment_cascades.md`.
+
 ---
 
-## September (per tracker)
+## September–October 2026 (plan)
 
-The tracker rolls the same 8 lines forward into September with all data columns blank, plus 3 open "New channel" slots. No targets have been filled in yet. See `docs/roadmap_sept_oct_2026.md` — this is tracked as **pending**, not assumed.
+Confirmed changes for this period:
+
+| Channel | PayIn | Notes |
+|---|---|---|
+| BigIdea | 4.75% | idle, unchanged |
+| Astrum | **4.5%** (renegotiated from 5.5%) | moves into the L1 tier |
+| Corytech (Betting) | 5% | unchanged |
+| Prime | 5.2% | unchanged |
+| E4A | 5.5% (base) | conv. 50–70% unchanged, still flagged |
+
+Plus two new channels confirmed for the cascade: **Continental** (4.5%) and **BnPay** (4.5%). Neither appears in this rate table because their PayIn figures were confirmed only for cascade placement, not yet added to the standard rate card — see `docs/data_gaps.md`.
+
+**Desired cascade, September–October:**
+
+| Tier | Channel(s) |
+|---|---|
+| L1 | Continental (new), BnPay (new), Astrum (4.5%, renegotiated) |
+| L2 | Corytech, Prime |
+| L3 | the rest |
+
+**Finding:** a strong L1 — three channels at 4.5% with stable, low limits — ahead of everything currently in the August cascade.

@@ -15,34 +15,39 @@ This section puts the two GEOs side by side: what's actually running, what it co
 | Live but at zero volume | 5 of 8 | 5 of 7 (all payin lines + TCL corporate/WeChat/Adult in integration) |
 | Cheapest tracked channel | BigIdea, 4.75% PayIn — **idle** | TCL payin, 4.5% — **idle (pre-launch)** |
 | Channel carrying the volume | Prime, 5.2% PayIn | TCL payout, 2.7% PayOut |
-| Sept–Oct 2026 plan | **Pending** — no targets provided yet | **Partial** — 1 new payout channel confirmed (HTX P2P +3%) |
+| Sept–Oct 2026 plan | **Cascade confirmed** (Continental, BnPay, renegotiated Astrum); volume targets still pending | **Confirmed** — new payout channel (~4pp cheaper) plus volume/margin targets |
 
-**Reading this table:** both GEOs show the identical shape — the cheapest, already-approved channel is not the one carrying traffic. Turkey's version of this costs real money today because Prime already has $30k/month running through it at a higher rate than the idle BigIdea. China's version hasn't cost anything yet because the whole payin side is still pre-launch — but it's the same routing decision waiting to be made correctly from day one, rather than corrected later.
+**Reading this table:** in Turkey, the cheapest channel (BigIdea) is idle while Prime — priced 0.45pp higher — carries the real volume. Per the payments team, that's a deliberate trade-off: Prime's limits are lower and more stable, and Turkey's traffic is small-ticket by design, so it prioritises stable limits over the lowest rate. The Sept–Oct plan addresses this not by forcing volume onto BigIdea, but by adding new, genuinely cheap *and* stable-limit channels (Continental, BnPay, a renegotiated Astrum) at L1. China's shape is simpler: the payin side is entirely pre-launch, so there's no live trade-off yet — but the confirmed Sept–Oct payout channel shows the same principle in reverse: a cheaper channel joining the proven one at L1, not replacing it.
 
 ---
 
 ## Part 2 — Cost comparison & profitability projection
 
-### Turkey: measurable today
+### Turkey: the August gap, and what Sept–Oct actually fixes it with
 
-| | Current blended cost | Optimised (route to cheapest idle Live channel) | Delta |
+| | August blended cost | Sept–Oct L1 (Continental, BnPay, Astrum) | Delta |
 |---|---|---|---|
-| PayIn, Betting | 5.22% | 4.75% | **–0.47pp (–9% relative)** |
-| $ impact at today's volume (32,100 USDT/mo) | — | — | **≈ $151/month** |
-| $ impact per $100,000/month of volume | — | — | **≈ $470/month** |
+| PayIn, Betting | 5.22% (Prime/E4A weighted) | 4.5% | **–0.72pp (–14% relative)** |
 
-This is a real, computable saving *right now* — it doesn't depend on any Sept–Oct target. It only requires shifting live traffic toward BigIdea instead of concentrating it on Prime. As Turkey's volume grows (once real Sept–Oct targets are set), this 9% relative gap compounds linearly with volume — e.g. at $500,000/month it's roughly $2,350/month, at $1,000,000/month roughly $4,700/month, all from routing alone, no rate renegotiation required.
+Unlike a simple "route to the cheapest idle channel" scenario, this isn't just cost-driven: Continental, BnPay, and the renegotiated Astrum are cheap **and** expected to carry stable, low limits suited to Turkey's small-ticket traffic — the same property that made Prime the practical volume carrier in August despite its higher rate. This is a real, confirmed cascade change; the one piece still missing is a volume target to size the dollar impact.
 
-### China: not yet measurable, one open question
+### China: confirmed, with the full picture now available
 
-China has no live reallocation opportunity today — TCL's payout leg is the only channel with real volume, and there's no confirmed cheaper live alternative to shift it to (see `docs/cost_analysis.md` on the Fastsecurepay direction mismatch). The one number worth tracking for profitability is the new HTX channel: its **+3% nominal margin is higher than TCL's current 2.7%**, so — unless the live HTX P2P quote undercuts TCL's xe.com reference — this channel should be read as **capacity/redundancy, not a cost improvement**. This is flagged as an open item to verify once the channel is live, not resolved as either a win or a cost in this pack.
+| | August | Sept–Oct target |
+|---|---|---|
+| Payout cost (all-in) | TCL, 2.9% | New channel ~4pp cheaper, alongside TCL at L1 |
+| Payout volume | 1,500,000 USDT/mo | 3,000,000 USDT/mo |
+| Payin volume | 0 (pre-launch) | ~50,000 USDT/day (≈1,500,000 USDT/mo) |
+| Blended margin | 0.1% | 4–5% |
 
-### The one number that will matter most once China's payin side launches
+The cost, volume, and margin figures for Sept–Oct are provided directly by the payments team (see `docs/data_gaps.md` for provenance) rather than derived independently in this pack — they're treated as confirmed inputs, not projections this document calculates.
 
-Once TCL, Fastsecurepay, and Moneystery start carrying real payin volume, the same Turkey-style calculation becomes possible for China. Pre-positioning: if China's payin volume defaulted to TCL (4.5%, 90% conversion) instead of splitting evenly across all three tracked channels (blended ≈ 7% assuming an even split across TCL 4.5% / Moneystery 9.5% / Fastsecurepay unconfirmed), the same "route to the cheapest proven channel first" logic applies — this is the core recommendation carried into `docs/payment_cascades.md`.
+### China payin, once it launches
+
+Once TCL, Fastsecurepay, and Moneystery start carrying real payin volume, the same logic applies: TCL (4.5%, 90% conversion) is the clear default over Moneystery (9.5%, Adult-only) — this is the core recommendation already carried into `docs/payment_cascades.md`.
 
 ---
 
 ## Bottom line
 
-The profitability opportunity in this pack isn't found in cheaper rates — every live channel's rate is already fixed on file. It's found in **routing**: both GEOs have a proven, cheap, approved channel sitting idle while a costlier one (or, in China's case, an unlaunched niche one) does the work. Fixing that costs nothing to implement and is worth roughly 9% of PayIn cost in Turkey today, scaling directly with volume, with China positioned to show the same gain the moment its payin side goes live.
+Turkey's fix isn't "push volume to the cheapest channel" — it's adding channels that are both cheap *and* fit the small-ticket, stable-limit traffic profile that made Prime the practical carrier despite its premium. China's fix is more direct: a new payout channel that's genuinely cheaper once live FX is accounted for, running alongside the proven TCL channel rather than replacing it, with confirmed volume and margin targets for the ramp to end of October.

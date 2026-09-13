@@ -1,6 +1,6 @@
 # Payment Cascades — Turkey & China
 
-This is the core document in the pack. A cascade defines the order channels are tried in for a given GEO/vertical: **L1** lines take traffic first, **L2** lines are the fallback tier. Today's cascade lines (as tagged in the channel tracker) are **not cost-ordered** — several ties and one clear mispriced case sit inside the current L1 tier. This document shows the cascade as tracked today, then proposes a rebuild ordered by cost, with a conversion-rate check wherever that data actually exists.
+This is the core document in the pack. A cascade defines the order channels are tried in for a given GEO/vertical: **L1** lines take traffic first, fallback tiers pick up what L1 doesn't clear. This document shows each cascade as actually operated in August, then the confirmed or proposed rebuild for September–October — cost-ordered, with a conversion-rate check wherever that data exists, and with limits/traffic-fit called out explicitly where cost alone would be misleading (Turkey Betting).
 
 ## Methodology for the proposed cascades
 
@@ -13,43 +13,48 @@ This is the core document in the pack. A cascade defines the order channels are 
 
 ## Turkey — Betting
 
-### Current cascade (as tracked)
+### Current cascade (August, as actually operated)
+
+This supersedes the tracker's raw L1/L2 tags — confirmed by the payments team as how the cascade is actually run:
 
 ```mermaid
 flowchart TD
-    A[Betting traffic] --> L1{L1 tier}
-    L1 --> BigIdea["BigIdea — 4.75% — 0 vol"]
-    L1 --> Prime["Prime — 5.2% — 30,000 USDT/mo"]
-    L1 --> Favori["Favori — 5% — 0 vol"]
-    L1 --> Corytech["Corytech — 5% — 0 vol"]
-    A --> L2{L2 tier}
-    L2 --> E4A["E4A — 5.5–7.5% — 2,100 USDT/mo — conv. 50–70%"]
-    L2 --> Astrum["Astrum — 5.5% — 0 vol"]
+    A[Betting traffic] --> L1["L1 — BigIdea — 4.75% — idle"]
+    L1 --> L2A["L2 — Corytech — 5% — idle"]
+    L1 --> L2B["L2 — Prime — 5.2% — 30,000 USDT/mo, most real volume lands here"]
+    L2A --> L3["L3 — the rest: Favori, E4A, Astrum"]
+    L2B --> L3
 ```
 
-**Problem with this as-is:** four channels share L1 with no cost priority between them, and the one actually carrying volume (Prime, 5.2%) is not the cheapest of the four (BigIdea, 4.75%). E4A sits in L2 at a higher cost *and* the only measured conversion rate in Turkey below an acceptable floor (50–70%).
+**Why Prime carries the volume despite sitting at L2, not L1:** Prime's settlement limits are lower and more stable than BigIdea's or any other live channel's, and Turkey's traffic is small-ticket by design — that traffic prioritises low, stable limits over the lowest headline rate. This is a deliberate fit, not routing inefficiency. See `docs/cost_analysis.md`.
 
-### Proposed cascade (cost + conversion ordered)
+**Still worth flagging:** E4A sits in L3 at a higher cost *and* the only measured conversion rate in Turkey below an acceptable floor (50–70%) — kept as a review item below regardless of the limits point above.
+
+### Proposed cascade — September–October (desired)
+
+Two new channels (Continental, BnPay) and a renegotiated Astrum rate (5.5% → 4.5%) combine into a strong, low-cost L1 tier:
 
 ```mermaid
 flowchart TD
-    A[Betting traffic] --> L1{"L1 — priority order by cost"}
-    L1 -->|1st| BigIdea["BigIdea — 4.75% — unmeasured conv., monitor"]
-    L1 -->|2nd tie| Favori["Favori — 5%"]
-    L1 -->|2nd tie| Corytech["Corytech — 5%"]
-    L1 -->|4th| Prime["Prime — 5.2% — proven volume, keep as active fallback within L1"]
-    A --> L2{"L2 — cost-acceptable fallback"}
-    L2 --> Astrum["Astrum — 5.5% — unmeasured conv."]
-    A --> Review{"Flagged for review, not removed"}
-    Review --> E4A["E4A — 5.5–7.5% — conv. 50–70%, below 80% floor"]
+    A[Betting traffic] --> L1{"L1 — Sept–Oct"}
+    L1 --> Continental["New channel — Continental — 4.5%"]
+    L1 --> BnPay["New channel — BnPay — 4.5%"]
+    L1 --> Astrum["Astrum — 4.5% — renegotiated from 5.5%"]
+    A --> L2{"L2"}
+    L2 --> Corytech["Corytech — 5%"]
+    L2 --> Prime["Prime — 5.2% — keeps its limits-fit role"]
+    A --> L3["L3 — the rest"]
+    A --> Review{"Flagged for review"}
+    Review --> E4A["E4A — 5.5% base — conv. 50–70%, below 80% floor"]
 ```
 
 **Rationale:**
-- BigIdea moves to first priority: cheapest Live/AFU channel, currently getting zero traffic for no cost or status reason on file.
-- Favori and Corytech tie on cost (5%) and both have zero traffic today — worth splitting test volume between them rather than picking one blind.
-- Prime keeps a place in L1 (it's proven, not broken) but drops from *only* carrier of volume to *one of four*, ending the over-concentration described in `docs/cost_analysis.md`.
-- E4A is moved out of a clean L2 fallback slot into an explicit **review** flag: it's simultaneously the second-most expensive line and the only one with a conversion problem on file. This isn't a recommendation to drop it — it's a recommendation to investigate before it keeps its L2 slot by default.
-- Astrum stays L2 — acceptable cost, no data suggesting a problem, just unmeasured.
+- Continental and BnPay enter directly at L1 at 4.5% — both confirmed for Sept–Oct, both cheaper than everything in the current L1/L2 tiers.
+- Astrum's renegotiated rate (4.5%) moves it from L3 into L1, alongside the two new channels — three low-cost, stable-limit channels now lead the cascade.
+- Corytech and Prime move to L2: Prime keeps a strong position given its limits fit the traffic, but no longer needs to be the primary volume carrier once L1 is genuinely cheap and stable.
+- E4A stays flagged for review, unchanged from August — cost and conversion concerns are independent of the L1 rebuild.
+
+**Finding:** a strong L1 for September–October — low rates paired with stable, low limits — ahead of everything currently in the August cascade.
 
 ---
 
@@ -112,24 +117,26 @@ flowchart TD
 
 ## China — Payout
 
-### Current cascade
+### Current cascade (August)
 
 ```mermaid
 flowchart TD
-    A[Payout traffic] --> L1["TCL — Alipay/WeChat — 2.7% — conv. 85/85% — 1,500,000 USDT/mo — sole confirmed channel"]
+    A[Payout traffic] --> L1["TCL — 2.9% all-in (2.7% payout + 0.2% agent) — conv. 85/85% — 1,500,000 USDT/mo — sole confirmed channel"]
     A --> Pipeline["TCL corporate payout — in integration, no rate yet"]
 ```
 
-### Proposed cascade — Sept–Oct addition
+### Proposed cascade — September–October (confirmed)
 
 ```mermaid
 flowchart TD
-    A[Payout traffic] --> L1["TCL — 2.7% — proven volume anchor — keep at L1"]
-    A --> L2{"L2 — new, cost to verify"}
-    L2 --> HTX["New channel — Alipay payout via HTX P2P +3% — confirmed for Sept–Oct, nominal margin above TCL"]
+    A[Payout traffic] --> L1{"L1 — Sept–Oct"}
+    L1 --> HTX["New channel — HTX P2P +3% nominal — ~4pp cheaper all-in — finishing integration"]
+    L1 --> TCL["TCL — 2.9% all-in — proven, kept for stability"]
 ```
 
-**Rationale:** TCL stays the L1 anchor — it's proven, stable, and there is no confirmed cheaper live alternative (see `docs/cost_analysis.md` on the Fastsecurepay direction mismatch). The new HTX channel is placed at **L2**, not co-L1, because its nominal +3% margin is higher than TCL's 2.7% — treat it as capacity/redundancy until the live HTX P2P quote is checked against TCL's xe.com reference. Promote it to L1 only if that check shows it's genuinely cheaper in practice, not just on the nominal margin.
+**Rationale:** TCL's nominal margin (2.7%) and the new channel's (~3%) look similar, but the new channel's live HTX P2P USDT→CNY rate runs more favourably than TCL's xe.com reference — per the payments team, the true all-in cost is roughly **4 percentage points lower**. Both channels sit at L1: the new channel absorbs the cost-sensitive share of volume, TCL stays for its proven track record and stability while the new channel finishes integration. This is a confirmed change, not a scenario to verify — see `docs/data_gaps.md` for the provenance of the 4pp figure.
+
+**Tied growth targets (by end of October, as provided):** payout volume 1,500,000 → 3,000,000 USDT/month; blended margin 0.1% → 4–5%. See `docs/china_channel_review.md`.
 
 ---
 
@@ -137,10 +144,10 @@ flowchart TD
 
 | GEO | Vertical | Change | Why |
 |---|---|---|---|
-| Turkey | Betting | Promote BigIdea to top L1 priority | Cheapest Live/AFU channel, currently idle |
-| Turkey | Betting | Split L1 priority across BigIdea/Favori/Corytech ahead of Prime | Ends over-concentration on one costlier channel |
-| Turkey | Betting | Flag E4A for review rather than default L2 | Only channel with a known conversion problem (50–70%) |
+| Turkey | Betting | Corrected current cascade to L1: BigIdea / L2: Corytech, Prime / L3: the rest | Reflects how the cascade is actually operated, per the payments team, not the tracker's raw tags |
+| Turkey | Betting | Sept–Oct: add Continental + BnPay (4.5%) to L1, renegotiate Astrum to 4.5% and move it to L1 | Builds a genuinely low-cost, stable-limit L1 tier |
+| Turkey | Betting | Keep E4A flagged for review | Only channel with a known conversion problem (50–70%), unchanged by the L1 rebuild |
 | Turkey | Forex / Adult | No reorder — structural flags only | Single-channel dependency (Forex); not yet launchable (Adult) |
 | China | Payin | Rank TCL first once traffic launches | Cheapest and only channel with conversion data |
 | China | Payin | Don't cost-rank Fastsecurepay yet | Rate direction unconfirmed |
-| China | Payout | Add HTX channel at L2, not L1 | Nominal cost is higher than TCL; needs live-quote verification |
+| China | Payout | Sept–Oct: add HTX channel at L1 alongside TCL | Confirmed ~4pp cheaper all-in once live FX is accounted for, per the payments team |

@@ -28,6 +28,8 @@
     --neutral: #5a6075;
     --neutral-bg: #f0f2f5;
     --bar-track: #eceef2;
+    --future: #0f5e6e;
+    --future-bg: #e6f2f4;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -53,6 +55,8 @@
       --neutral: #8a90a8;
       --neutral-bg: #252830;
       --bar-track: #252830;
+      --future: #2fa9bd;
+      --future-bg: #123138;
     }
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -67,7 +71,7 @@
   .banner{background:var(--accent-light);border-left:4px solid var(--accent);color:var(--accent);padding:12px 32px;font-size:14px;font-weight:500;}
   .banner-inner{max-width:1180px;margin:0 auto;}
   main{max-width:1180px;margin:0 auto;padding:36px 32px 72px;}
-  section{margin-bottom:48px;}
+  section{margin-bottom:44px;}
   .section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:6px;padding-bottom:8px;border-bottom:1px solid var(--border);}
   .section-sub{font-size:13px;color:var(--text-muted);margin-bottom:18px;}
   .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:8px;}
@@ -80,6 +84,10 @@
   .panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:var(--shadow);}
   .panel h3{font-size:15px;font-weight:700;margin-bottom:4px;}
   .panel .panel-sub{font-size:12.5px;color:var(--text-muted);margin-bottom:16px;}
+  .panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:2px;}
+  .period-chip{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 9px;border-radius:20px;}
+  .period-chip.aug{background:var(--neutral-bg);color:var(--neutral);}
+  .period-chip.plan{background:var(--future-bg);color:var(--future);}
   .bar-row{margin-bottom:12px;}
   .bar-row:last-child{margin-bottom:0;}
   .bar-label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:4px;}
@@ -92,23 +100,20 @@
   .bar-fill.expensive{background:var(--expensive);}
   .bar-fill.pending{background:var(--pending);}
   .bar-fill.neutral{background:var(--neutral);}
-  .tag-row{margin-top:3px;}
+  .bar-fill.future{background:var(--future);}
   .tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}
   .tag.live{color:var(--live);background:var(--live-bg);}
   .tag.idle{color:var(--idle);background:var(--idle-bg);}
   .tag.expensive{color:var(--expensive);background:var(--expensive-bg);}
   .tag.pending{color:var(--pending);background:var(--pending-bg);}
   .tag.neutral{color:var(--neutral);background:var(--neutral-bg);}
-  .legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:12.5px;color:var(--text-muted);margin-bottom:18px;}
-  .legend span{display:inline-flex;align-items:center;gap:6px;}
-  .legend .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
-  .dot.live{background:var(--live);} .dot.idle{background:var(--idle);} .dot.expensive{background:var(--expensive);} .dot.pending{background:var(--pending);} .dot.neutral{background:var(--neutral);}
+  .tag.future{color:var(--future);background:var(--future-bg);}
   table{width:100%;border-collapse:collapse;font-size:13.5px;}
   th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);}
   th{font-size:11.5px;text-transform:uppercase;letter-spacing:0.4px;color:var(--text-muted);font-weight:700;background:var(--surface-alt);}
   tr:last-child td{border-bottom:none;}
   .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);overflow-x:auto;}
-  .callout{background:var(--accent-light);border:1px solid var(--accent);border-radius:10px;padding:16px 18px;font-size:13.5px;color:var(--text);margin-top:16px;}
+  .callout{background:var(--accent-light);border:1px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--text);margin-top:14px;}
   .callout strong{color:var(--accent);}
   /* Cascades */
   .cascade-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:var(--shadow);margin-bottom:20px;}
@@ -122,18 +127,31 @@
   .chan-card.idle{border-color:var(--idle);background:var(--idle-bg);}
   .chan-card.flag{border-color:var(--expensive);background:var(--expensive-bg);}
   .chan-card.pending{border-color:var(--pending);background:var(--pending-bg);}
+  .chan-card.future{border-color:var(--future);background:var(--future-bg);}
   .chan-card .cname{font-weight:700;margin-bottom:2px;}
   .chan-card .cmeta{color:var(--text-muted);}
   .arrow{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--text-muted);min-width:20px;}
   @media (max-width:700px){.arrow{display:none;} .cascade-flow{flex-direction:column;}}
   .rank-badge{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:var(--accent);border-radius:50%;width:18px;height:18px;text-align:center;line-height:18px;margin-right:6px;}
+  /* Growth charts */
+  .growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .growth-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);}
+  .growth-card h4{font-size:13.5px;font-weight:700;margin-bottom:14px;}
+  .growth-pair{display:flex;flex-direction:column;gap:10px;}
+  .growth-item{display:flex;align-items:center;gap:10px;}
+  .growth-item .glabel{width:78px;flex-shrink:0;font-size:11.5px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.3px;}
+  .growth-item .gtrack{flex:1;background:var(--bar-track);border-radius:6px;height:22px;overflow:hidden;}
+  .growth-item .gfill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11.5px;font-weight:700;color:#fff;border-radius:6px;white-space:nowrap;}
+  .growth-item .gfill.now{background:var(--neutral);}
+  .growth-item .gfill.target{background:var(--future);}
+  .growth-delta{margin-top:10px;font-size:12px;color:var(--text-muted);text-align:center;}
   .ref-list{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);}
-  .ref-item{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--border);}
+  .ref-list.compact .ref-item{padding:9px 16px;}
+  .ref-item{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;}
   .ref-item:last-child{border-bottom:none;}
-  .ref-item a{font-size:14px;font-weight:600;color:var(--text);display:block;}
+  .ref-item a{font-weight:600;color:var(--text);}
   .ref-item a:hover{color:var(--accent);}
-  .ref-item span.desc{font-size:12px;color:var(--text-muted);}
-  .ref-tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:3px 9px;border-radius:5px;background:var(--accent-light);color:var(--accent);flex-shrink:0;}
+  .ref-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:2px 8px;border-radius:5px;background:var(--accent-light);color:var(--accent);flex-shrink:0;margin-left:auto;}
   footer{border-top:1px solid var(--border);padding:20px 32px;text-align:center;font-size:12px;color:var(--text-muted);}
   @media (max-width:640px){header,.banner{padding-left:16px;padding-right:16px;} main{padding:24px 16px 48px;} .geo-cols{gap:16px;}}
 </style>
@@ -145,184 +163,212 @@
     <div class="logo" aria-hidden="true">IN</div>
     <div class="header-titles">
       <h1>Incas — GEO Development Review</h1>
-      <p>China &amp; Turkey — channel status, cost, and payment cascades</p>
+      <p>China &amp; Turkey — August actuals vs. September–October 2026 plan</p>
     </div>
   </div>
 </header>
 
-<div class="banner"><div class="banner-inner">Internal use only — real commission rates and partner names. Data as of August (actuals); September–October 2026 items are marked confirmed or pending explicitly, never assumed.</div></div>
+<div class="banner"><div class="banner-inner">Internal use only — real commission rates and partner names. Grey = August actuals. Teal = September–October plan/target — confirmed items only, never assumed.</div></div>
 
 <main>
 
   <!-- KPI overview -->
   <section>
-    <div class="section-title">At a glance</div>
+    <div class="section-title">At a glance — August</div>
     <div class="kpi-grid">
       <div class="kpi"><div class="label">Turkey — live volume</div><div class="value">32,100 <span style="font-size:13px;font-weight:500;color:var(--text-muted)">USDT/mo</span></div><div class="sub">2 of 6 channels carrying traffic</div></div>
-      <div class="kpi"><div class="label">China — live volume</div><div class="value">1,500,000 <span style="font-size:13px;font-weight:500;color:var(--text-muted)">USDT/mo</span></div><div class="sub">1 of 3 channels carrying traffic (payout)</div></div>
-      <div class="kpi"><div class="label">Turkey cost gap</div><div class="value" style="color:var(--expensive)">–9%</div><div class="sub">relative PayIn saving if routed via cheapest idle channel</div></div>
-      <div class="kpi"><div class="label">Sept–Oct plan status</div><div class="value" style="font-size:16px;color:var(--pending)">China: partial · Turkey: pending</div><div class="sub">see roadmap doc for detail</div></div>
+      <div class="kpi"><div class="label">China — payout volume</div><div class="value">1,500,000 <span style="font-size:13px;font-weight:500;color:var(--text-muted)">USDT/mo</span></div><div class="sub">sole channel carrying traffic: TCL</div></div>
+      <div class="kpi"><div class="label">China — payin volume</div><div class="value" style="color:var(--idle)">0%</div><div class="sub">all payin channels pre-launch</div></div>
+      <div class="kpi"><div class="label">Sept–Oct plan status</div><div class="value" style="font-size:16px;color:var(--pending)">China: confirmed items in place · Turkey: cascade rebuild planned</div></div>
     </div>
   </section>
 
-  <!-- Turkey / China channel comparison -->
+  <!-- Turkey -->
   <section>
-    <div class="section-title">Channel cost comparison</div>
-    <div class="section-sub">PayIn rate by channel. Green = live &amp; carrying volume · Amber = live but idle (0 volume) · Red = flagged (cost or conversion concern) · Purple = pending / not yet launchable.</div>
-    <div class="legend">
-      <span><span class="dot live"></span>Live, carrying volume</span>
-      <span><span class="dot idle"></span>Live, idle (0 volume)</span>
-      <span><span class="dot expensive"></span>Flagged (cost/conversion)</span>
-      <span><span class="dot pending"></span>Pending / not yet launchable</span>
-    </div>
+    <div class="section-title">Turkey — PayIn rate by channel</div>
+    <div class="section-sub">August actuals vs. the September–October plan. Green = carrying volume · Amber = idle · Red = flagged (conversion) · Purple = not yet launchable.</div>
     <div class="geo-cols">
 
       <div class="panel">
-        <h3>Turkey — PayIn rate by channel</h3>
+        <div class="panel-head"><h3>August</h3><span class="period-chip aug">Actual</span></div>
         <div class="panel-sub">Sorted cheapest to most expensive. Base rate shown for ranges.</div>
 
         <div class="bar-row"><div class="bar-label"><span class="name">BigIdea <span class="tag idle">idle</span></span><span class="val">4.75%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:63%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">Favori <span class="tag idle">idle</span></span><span class="val">5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:67%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">Corytech (Betting) <span class="tag idle">idle</span></span><span class="val">5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:67%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">Prime <span class="tag live">30,000 USDT/mo</span></span><span class="val">5.2%</span></div><div class="bar-track"><div class="bar-fill live" style="width:69%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">Astrum <span class="tag idle">idle</span></span><span class="val">5.5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:73%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">E4A <span class="tag expensive">conv. 50–70%</span></span><span class="val">5.5–7.5%</span></div><div class="bar-track"><div class="bar-fill expensive" style="width:73%"></div></div></div>
-
         <div class="bar-row"><div class="bar-label"><span class="name">Corytech (Adult) <span class="tag pending">not in AFU</span></span><span class="val">6%</span></div><div class="bar-track"><div class="bar-fill pending" style="width:80%"></div></div></div>
 
-        <div class="callout"><strong>Finding:</strong> the cheapest channel (BigIdea, 4.75%) is idle. The channel carrying 93% of tracked volume (Prime) is priced 0.45pp above it. See <code>docs/cost_analysis.md</code>.</div>
+        <div class="callout"><strong>Finding:</strong> the cheapest channel (BigIdea, 4.75%) is idle. Prime, carrying 93% of tracked volume, is priced 0.45pp above it — but Prime's settlement limits are lower and more stable than BigIdea's or any other live channel's. Turkey's traffic is small-ticket by design, and that traffic prioritises low, stable limits over the lowest rate. The premium on Prime is a deliberate fit, not simple inefficiency.</div>
       </div>
 
       <div class="panel">
-        <h3>China — PayIn rate by channel</h3>
-        <div class="panel-sub">Fastsecurepay omitted — rate on file is for payout, not payin (see data gaps).</div>
+        <div class="panel-head"><h3>September–October (plan)</h3><span class="period-chip plan">Plan</span></div>
+        <div class="panel-sub">Astrum's rate is renegotiated down for this plan; two new L1 channels added (see cascade below).</div>
 
-        <div class="bar-row"><div class="bar-label"><span class="name">TCL <span class="tag idle">idle · conv. 90%</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:47%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">BigIdea <span class="tag idle">idle</span></span><span class="val">4.75%</span></div><div class="bar-track"><div class="bar-fill future" style="width:63%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">Astrum <span class="tag future">renegotiated</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:60%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">Corytech (Betting) <span class="tag idle">idle</span></span><span class="val">5%</span></div><div class="bar-track"><div class="bar-fill future" style="width:67%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">Prime</span><span class="val">5.2%</span></div><div class="bar-track"><div class="bar-fill future" style="width:69%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">E4A <span class="tag expensive">conv. 50–70%</span></span><span class="val">5.5%</span></div><div class="bar-track"><div class="bar-fill expensive" style="width:73%"></div></div></div>
 
-        <div class="bar-row"><div class="bar-label"><span class="name">Moneystery <span class="tag pending">Adult-only · idle</span></span><span class="val">9.5%</span></div><div class="bar-track"><div class="bar-fill pending" style="width:100%"></div></div></div>
-
-        <div class="callout"><strong>Finding:</strong> all China payin channels are pre-launch (0 volume). Among them, TCL is both cheapest and the only one with conversion data (90%) — the clear default once traffic starts. Moneystery's premium reflects Adult-vertical exclusivity, not inefficiency.</div>
-
-        <h3 style="margin-top:22px;">China — PayOut rate</h3>
-        <div class="panel-sub">Only TCL has confirmed live payout volume today.</div>
-
-        <div class="bar-row"><div class="bar-label"><span class="name">TCL <span class="tag live">1,500,000 USDT/mo · conv. 85%</span></span><span class="val">2.7%</span></div><div class="bar-track"><div class="bar-fill live" style="width:68%"></div></div></div>
-
-        <div class="bar-row"><div class="bar-label"><span class="name">New channel (Sept–Oct) <span class="tag pending">HTX P2P +3% · unverified</span></span><span class="val">~3%</span></div><div class="bar-track"><div class="bar-fill pending" style="width:75%"></div></div></div>
+        <div class="callout"><strong>Finding:</strong> a strong L1 tier for Sept–Oct — low rates paired with stable, low limits, once the two new channels (Continental, BnPay) join Astrum at the front of the cascade. See the cascade below.</div>
       </div>
 
     </div>
   </section>
 
-  <!-- Profitability -->
+  <!-- Turkey cascade -->
   <section>
-    <div class="section-title">Progress &amp; profitability — Turkey vs. China</div>
-    <div class="section-sub">Full detail in <code>docs/geo_progress_comparison.md</code>. Numbers below use current, real volume — no invented Sept–Oct targets.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th></th><th>Turkey</th><th>China</th></tr>
-        <tr><td>Active channels</td><td>6</td><td>3</td></tr>
-        <tr><td>Live monthly volume</td><td>32,100 USDT (Betting)</td><td>1,500,000 USDT (payout)</td></tr>
-        <tr><td>Channels carrying real volume</td><td>2 of 6</td><td>1 of 3</td></tr>
-        <tr><td>Cheapest channel</td><td>BigIdea — 4.75% — idle</td><td>TCL payin — 4.5% — idle</td></tr>
-        <tr><td>Channel carrying the volume</td><td>Prime — 5.2%</td><td>TCL payout — 2.7%</td></tr>
-        <tr><td>Current blended cost</td><td>5.22%</td><td>n/a (single channel)</td></tr>
-        <tr><td>Optimised blended cost</td><td>4.75%</td><td>n/a — no confirmed cheaper live alternative</td></tr>
-        <tr><td><strong>Profitability gain</strong></td><td><strong>–0.47pp (–9% relative) · ≈ $470/mo saved per $100k routed</strong></td><td><strong>Not yet measurable — payin side pre-launch</strong></td></tr>
-        <tr><td>Sept–Oct 2026 plan</td><td>Pending — no targets yet</td><td>Partial — 1 new payout channel confirmed</td></tr>
-      </table>
-    </div>
-    <div class="callout"><strong>Bottom line:</strong> the profitability opportunity isn't cheaper rates — every live rate is already fixed. It's routing: both GEOs have a cheap, approved channel sitting idle while a costlier one (or an unlaunched niche one) carries the load. Fixing that costs nothing to implement.</div>
-  </section>
-
-  <!-- Cascades — the big section -->
-  <section>
-    <div class="section-title">Payment cascades</div>
-    <div class="section-sub">Current cascade (as tracked) vs. proposed rebuild — cost-ordered, with a conversion-rate check wherever that data exists. Full rationale in <code>docs/payment_cascades.md</code>.</div>
+    <div class="section-title">Turkey — Betting cascade</div>
+    <div class="section-sub">Real operating cascade, August vs. the September–October rebuild.</div>
 
     <div class="cascade-block">
-      <h4>Turkey — Betting — current</h4>
-      <div class="vertical-label">L1/L2 as tagged in the tracker, no cost priority within tiers</div>
+      <h4>August <span class="period-chip aug" style="margin-left:6px;">Actual</span></h4>
       <div class="cascade-flow">
         <div class="tier">
           <div class="tier-label">L1</div>
           <div class="chan-card idle"><div class="cname">BigIdea</div><div class="cmeta">4.75% · idle</div></div>
-          <div class="chan-card live"><div class="cname">Prime</div><div class="cmeta">5.2% · 30,000 USDT/mo</div></div>
-          <div class="chan-card idle"><div class="cname">Favori</div><div class="cmeta">5% · idle</div></div>
-          <div class="chan-card idle"><div class="cname">Corytech</div><div class="cmeta">5% · idle</div></div>
         </div>
         <div class="arrow">→</div>
         <div class="tier">
           <div class="tier-label">L2</div>
-          <div class="chan-card flag"><div class="cname">E4A</div><div class="cmeta">5.5–7.5% · conv. 50–70%</div></div>
-          <div class="chan-card idle"><div class="cname">Astrum</div><div class="cmeta">5.5% · idle</div></div>
+          <div class="chan-card idle"><div class="cname">Corytech</div><div class="cmeta">5% · idle</div></div>
+          <div class="chan-card live"><div class="cname">Prime</div><div class="cmeta">5.2% · 30,000 USDT/mo — most real volume lands here</div></div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="tier">
+          <div class="tier-label">L3</div>
+          <div class="chan-card idle"><div class="cname">The rest</div><div class="cmeta">Favori, E4A, Astrum</div></div>
         </div>
       </div>
     </div>
 
     <div class="cascade-block">
-      <h4>Turkey — Betting — proposed (cost + conversion ordered)</h4>
-      <div class="vertical-label">L1 reordered by cost; E4A moved to explicit review rather than default L2</div>
+      <h4>September–October <span class="period-chip plan" style="margin-left:6px;">Desired</span></h4>
       <div class="cascade-flow">
         <div class="tier">
-          <div class="tier-label">L1 — priority order</div>
-          <div class="chan-card idle"><div class="cname"><span class="rank-badge">1</span>BigIdea</div><div class="cmeta">4.75% · promote — cheapest, currently idle</div></div>
-          <div class="chan-card idle"><div class="cname"><span class="rank-badge">2</span>Favori</div><div class="cmeta">5% · tie</div></div>
-          <div class="chan-card idle"><div class="cname"><span class="rank-badge">2</span>Corytech</div><div class="cmeta">5% · tie</div></div>
-          <div class="chan-card live"><div class="cname"><span class="rank-badge">4</span>Prime</div><div class="cmeta">5.2% · proven, keep — but not sole carrier</div></div>
+          <div class="tier-label">L1</div>
+          <div class="chan-card future"><div class="cname">New channel — Continental</div><div class="cmeta">4.5%</div></div>
+          <div class="chan-card future"><div class="cname">New channel — BnPay</div><div class="cmeta">4.5%</div></div>
+          <div class="chan-card future"><div class="cname">Astrum</div><div class="cmeta">4.5% · renegotiated</div></div>
         </div>
         <div class="arrow">→</div>
         <div class="tier">
-          <div class="tier-label">L2 — fallback</div>
-          <div class="chan-card idle"><div class="cname">Astrum</div><div class="cmeta">5.5% · unmeasured, monitor</div></div>
+          <div class="tier-label">L2</div>
+          <div class="chan-card idle"><div class="cname">Corytech</div><div class="cmeta">5%</div></div>
+          <div class="chan-card idle"><div class="cname">Prime</div><div class="cmeta">5.2%</div></div>
         </div>
         <div class="arrow">→</div>
         <div class="tier">
-          <div class="tier-label">Flagged for review</div>
-          <div class="chan-card flag"><div class="cname">E4A</div><div class="cmeta">5.5–7.5% · conv. 50–70% — below floor</div></div>
+          <div class="tier-label">L3</div>
+          <div class="chan-card idle"><div class="cname">The rest</div></div>
         </div>
+      </div>
+      <div class="callout"><strong>Finding:</strong> a strong L1 with low rates and stable, low limits — three channels at 4.5% ahead of everything currently in the cascade today.</div>
+    </div>
+  </section>
+
+  <!-- China Payout -->
+  <section>
+    <div class="section-title">China — Payout</div>
+    <div class="section-sub">August actual vs. the September–October addition.</div>
+    <div class="geo-cols">
+      <div class="panel">
+        <div class="panel-head"><h3>August</h3><span class="period-chip aug">Actual</span></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">TCL <span class="tag live">1,500,000 USDT/mo · conv. 85%</span></span><span class="val">2.7%</span></div><div class="bar-track"><div class="bar-fill live" style="width:68%"></div></div></div>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <tr><th></th><th>Payout</th><th>Agent</th><th>Settlement/FX</th><th>All-in</th></tr>
+            <tr><td>TCL</td><td>2.7%</td><td>0.2%</td><td>xe.com +0%</td><td><strong>2.9%</strong></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>September–October</h3><span class="period-chip plan">Plan</span></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">New channel <span class="tag future">finishing integration</span></span><span class="val">~3% nominal</span></div><div class="bar-track"><div class="bar-fill future" style="width:75%"></div></div></div>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <tr><th></th><th>Payout</th><th>Agent</th><th>Settlement/FX</th><th>All-in</th></tr>
+            <tr><td>New channel</td><td>0%</td><td>—</td><td>HTX P2P +3%</td><td><strong>~3% nominal</strong></td></tr>
+          </table>
+        </div>
+        <div class="callout"><strong>Finding:</strong> a strong new L1 for China payout at a lower cost. Nominal margins look similar (2.9% vs. ~3%), but HTX's live P2P USDT→CNY rate runs more favourably than TCL's xe.com reference — the all-in cost comes out roughly <strong>4 percentage points lower</strong>. Provided directly by the payments team; not derived from either source spreadsheet.</div>
       </div>
     </div>
 
-    <div class="cascade-block">
-      <h4>China — General Payin — current vs. proposed</h4>
-      <div class="vertical-label">Low/mid-risk + Betting + Forex</div>
+    <div class="cascade-block" style="margin-top:20px;">
+      <h4>Payout cascade — August → September–October</h4>
       <div class="cascade-flow">
         <div class="tier">
-          <div class="tier-label">Current L1 (no priority)</div>
-          <div class="chan-card idle"><div class="cname">TCL</div><div class="cmeta">4.5% · conv. 90% · idle</div></div>
-          <div class="chan-card pending"><div class="cname">Fastsecurepay</div><div class="cmeta">rate unconfirmed</div></div>
+          <div class="tier-label">L1 — August</div>
+          <div class="chan-card live"><div class="cname">TCL</div><div class="cmeta">2.9% all-in · 1,500,000 USDT/mo · "very stable"</div></div>
         </div>
         <div class="arrow">→</div>
         <div class="tier">
-          <div class="tier-label">Proposed L1 — priority order</div>
-          <div class="chan-card idle"><div class="cname"><span class="rank-badge">1</span>TCL</div><div class="cmeta">4.5% · conv. 90% — cheapest &amp; best-tested</div></div>
-          <div class="chan-card pending"><div class="cname"><span class="rank-badge">2</span>Fastsecurepay</div><div class="cmeta">do not cost-rank until rate confirmed</div></div>
+          <div class="tier-label">L1 — Sept–Oct (desired)</div>
+          <div class="chan-card future"><div class="cname">New channel</div><div class="cmeta">~4pp cheaper all-in · finishing integration</div></div>
+          <div class="chan-card live"><div class="cname">TCL</div><div class="cmeta">2.9% all-in · proven, kept for stability</div></div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="cascade-block">
-      <h4>China — Payout — current vs. proposed (Sept–Oct addition)</h4>
-      <div class="cascade-flow">
-        <div class="tier">
-          <div class="tier-label">L1 — anchor</div>
-          <div class="chan-card live"><div class="cname">TCL</div><div class="cmeta">2.7% · conv. 85% · 1,500,000 USDT/mo · "very stable" — keep at L1</div></div>
+  <!-- China growth plan -->
+  <section>
+    <div class="section-title">China — growth plan through end of October</div>
+    <div class="section-sub">Planned ramp, not a derived figure — targets as provided.</div>
+    <div class="growth-grid">
+
+      <div class="growth-card">
+        <h4>Payout volume</h4>
+        <div class="growth-pair">
+          <div class="growth-item"><span class="glabel">August</span><div class="gtrack"><div class="gfill now" style="width:50%">1,500,000</div></div></div>
+          <div class="growth-item"><span class="glabel">End Oct</span><div class="gtrack"><div class="gfill target" style="width:100%">3,000,000</div></div></div>
         </div>
-        <div class="arrow">→</div>
-        <div class="tier">
-          <div class="tier-label">L2 — new, cost to verify</div>
-          <div class="chan-card pending"><div class="cname">New channel</div><div class="cmeta">HTX P2P +3% · confirmed for Sept–Oct · nominal margin above TCL — verify live quote before promoting to L1</div></div>
+        <div class="growth-delta">2× growth target, USDT/month</div>
+      </div>
+
+      <div class="growth-card">
+        <h4>Payin volume</h4>
+        <div class="growth-pair">
+          <div class="growth-item"><span class="glabel">August</span><div class="gtrack"><div class="gfill now" style="width:3%"></div></div></div>
+          <div class="growth-item"><span class="glabel">End Oct</span><div class="gtrack"><div class="gfill target" style="width:100%">~50,000/day</div></div></div>
         </div>
+        <div class="growth-delta">0 → ~1,500,000 USDT/month (≈50,000/day)</div>
+      </div>
+
+      <div class="growth-card">
+        <h4>Blended margin</h4>
+        <div class="growth-pair">
+          <div class="growth-item"><span class="glabel">August</span><div class="gtrack"><div class="gfill now" style="width:2%"></div></div></div>
+          <div class="growth-item"><span class="glabel">End Oct</span><div class="gtrack"><div class="gfill target" style="width:90%">4–5%</div></div></div>
+        </div>
+        <div class="growth-delta">0.1% → 4–5% target, driven by the cheaper new payout channel</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- China Payin -->
+  <section>
+    <div class="section-title">China — PayIn rate by channel</div>
+    <div class="section-sub">August: pre-launch across the board. September–October: ramp to real volume.</div>
+    <div class="geo-cols">
+      <div class="panel">
+        <div class="panel-head"><h3>August</h3><span class="period-chip aug">Actual</span></div>
+        <div class="kpi" style="margin-bottom:16px;"><div class="label">Live payin volume</div><div class="value" style="color:var(--idle)">0%</div><div class="sub">TCL, Fastsecurepay and Moneystery all pre-launch</div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">TCL <span class="tag idle">idle · conv. 90%</span></span><span class="val">4.5%</span></div><div class="bar-track"><div class="bar-fill idle" style="width:47%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="name">Moneystery <span class="tag pending">Adult-only · idle</span></span><span class="val">9.5%</span></div><div class="bar-track"><div class="bar-fill pending" style="width:100%"></div></div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>September–October</h3><span class="period-chip plan">Plan</span></div>
+        <div class="kpi" style="margin-bottom:16px;"><div class="label">Target daily volume</div><div class="value" style="color:var(--future)">~50,000 <span style="font-size:12px;font-weight:500;color:var(--text-muted)">USDT/day</span></div><div class="sub">≈ 1,500,000 USDT/month by end of October</div></div>
+        <div class="callout"><strong>Finding:</strong> TCL remains the clear default once traffic launches — cheapest (4.5%) and only channel with conversion data (90%). Fastsecurepay stays unranked until its rate is confirmed (see <code>docs/data_gaps.md</code>).</div>
       </div>
     </div>
-
-    <div class="callout">Turkey Forex (sole channel: Astrum, idle) and Turkey Adult (Corytech, not yet in AFU) and China Adult Payin (sole channel: Moneystery) have no cascade to optimise — each is a single-channel or not-yet-launchable case. Full detail in <code>docs/payment_cascades.md</code>.</div>
   </section>
 
   <!-- Roadmap -->
@@ -331,10 +377,13 @@
     <div class="table-wrap">
       <table>
         <tr><th>GEO</th><th>Item</th><th>Status</th><th>Note</th></tr>
-        <tr><td>China</td><td>New Alipay payout channel — HTX P2P +3%</td><td><span class="tag pending">Confirmed</span></td><td>Cost impact vs. TCL's 2.7% not yet verified against live quotes</td></tr>
-        <tr><td>China</td><td>Second "New channel" slot</td><td><span class="tag neutral">Open</span></td><td>No candidate yet</td></tr>
+        <tr><td>Turkey</td><td>New channels — Continental, BnPay (both 4.5%)</td><td><span class="tag future">Confirmed</span></td><td>Join Astrum (renegotiated to 4.5%) at L1</td></tr>
+        <tr><td>Turkey</td><td>Astrum rate renegotiated 5.5% → 4.5%</td><td><span class="tag future">Confirmed</span></td><td>Moves Astrum into the L1 tier</td></tr>
+        <tr><td>China</td><td>New Alipay payout channel — HTX P2P +3%</td><td><span class="tag future">Confirmed</span></td><td>~4pp cheaper all-in than TCL; finishing integration</td></tr>
+        <tr><td>China</td><td>Payout volume target</td><td><span class="tag future">Target</span></td><td>1,500,000 → 3,000,000 USDT/month by end of October</td></tr>
+        <tr><td>China</td><td>Payin volume target</td><td><span class="tag future">Target</span></td><td>0 → ~50,000 USDT/day by end of October</td></tr>
+        <tr><td>China</td><td>Blended margin target</td><td><span class="tag future">Target</span></td><td>0.1% → 4–5% by end of October</td></tr>
         <tr><td>China</td><td>TCL corporate payout / WeChat &amp; UnionPay payin / Adult payin</td><td><span class="tag neutral">In integration</span></td><td>No rate published yet</td></tr>
-        <tr><td>Turkey</td><td>Volume targets &amp; new channels</td><td><span class="tag expensive">Pending</span></td><td>Not yet provided — tracked in <code>docs/roadmap_sept_oct_2026.md</code></td></tr>
       </table>
     </div>
   </section>
@@ -342,18 +391,18 @@
   <!-- Reference docs -->
   <section>
     <div class="section-title">Reference documents</div>
-    <div class="ref-list">
-      <div class="ref-item"><div style="flex:1;"><a href="docs/turkey_channel_review.md">Turkey Channel Review</a><br><span class="desc">Full channel table, August review notes, September status</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/china_channel_review.md">China Channel Review</a><br><span class="desc">Full channel table, new card-topup idea, August review notes</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/cost_analysis.md">Cost Analysis</a><br><span class="desc">Blended cost calculations, idle-cheap findings, HTX channel comparison</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/payment_cascades.md">Payment Cascades</a><br><span class="desc">Current vs. proposed cascades per GEO/vertical, with Mermaid diagrams and rationale</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/geo_progress_comparison.md">GEO Progress Comparison</a><br><span class="desc">Turkey vs. China side by side — progress, cost, profitability projection</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/roadmap_sept_oct_2026.md">Roadmap — Sept–Oct 2026</a><br><span class="desc">Confirmed and pending items only — no invented targets</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="docs/data_gaps.md">Data Gaps</a><br><span class="desc">Every unresolved discrepancy, tracked explicitly</span></div><span class="ref-tag">Doc</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="data/turkey_channels_august.csv" download>Turkey Channels (CSV)</a><br><span class="desc">Raw extract — status, volume, cascade line</span></div><span class="ref-tag">CSV</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="data/china_channels_august.csv" download>China Channels (CSV)</a><br><span class="desc">Raw extract — status, volume, cascade line</span></div><span class="ref-tag">CSV</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="data/turkey_rate_card.csv" download>Turkey Rate Card (CSV)</a><br><span class="desc">Raw extract — PayIn/PayOut/settlement rates</span></div><span class="ref-tag">CSV</span></div>
-      <div class="ref-item"><div style="flex:1;"><a href="data/china_rate_card.csv" download>China Rate Card (CSV)</a><br><span class="desc">Raw extract — PayIn/PayOut/settlement rates</span></div><span class="ref-tag">CSV</span></div>
+    <div class="ref-list compact">
+      <div class="ref-item"><a href="docs/turkey_channel_review.md">Turkey Channel Review</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/china_channel_review.md">China Channel Review</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/cost_analysis.md">Cost Analysis</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/payment_cascades.md">Payment Cascades</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/geo_progress_comparison.md">GEO Progress Comparison</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/roadmap_sept_oct_2026.md">Roadmap — Sept–Oct 2026</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="docs/data_gaps.md">Data Gaps</a><span class="ref-tag">Doc</span></div>
+      <div class="ref-item"><a href="data/turkey_channels_august.csv" download>Turkey Channels (CSV)</a><span class="ref-tag">CSV</span></div>
+      <div class="ref-item"><a href="data/china_channels_august.csv" download>China Channels (CSV)</a><span class="ref-tag">CSV</span></div>
+      <div class="ref-item"><a href="data/turkey_rate_card.csv" download>Turkey Rate Card (CSV)</a><span class="ref-tag">CSV</span></div>
+      <div class="ref-item"><a href="data/china_rate_card.csv" download>China Rate Card (CSV)</a><span class="ref-tag">CSV</span></div>
     </div>
   </section>
 
