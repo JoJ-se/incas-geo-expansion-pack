@@ -1,0 +1,8 @@
+Channel,Payment_Method,Vertical,Status,Cascade_Line,AFU,Daily_Volume_USDT,Monthly_Volume_USDT,Comments
+TCL,Alipay simple payin,"Low/mid risk + betting + forex",Live,L1,Yes,0,0,Traffic not launched
+TCL,Alipay simple payout,"Low/mid risk + betting + forex",Live,L1,Yes,52000,1500000,Very stable
+TCL,Alipay payout corporate,Low risk only,In integration,L1,Yes,N/A,N/A,In integration
+TCL,"Wechat payin, UnionPay QR payin",Low risk only,In integration,L1,Yes,N/A,N/A,In integration
+TCL,Alipay payin adults,Adult,In integration,N/A,N/A,N/A,N/A,In integration
+Fastsecurepay,Alipay simple payin,Low risk only,Live,L1,Yes,0,0,In the process of launching traffic
+Moneystery,Alipay native payin,Adult only,Live,L1,Yes,0,0,In the process of launching traffic

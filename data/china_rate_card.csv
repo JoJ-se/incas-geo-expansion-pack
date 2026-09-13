@@ -1,0 +1,5 @@
+Channel,Method,PayIn_Pct,PayOut_Pct,Agent_Fee_Pct,Settlement_Terms,Settlement_Fee,FX_Source,Conv_FTD_Pct,Conv_STD_Pct,Notes
+TCL,Alipay payin,4.5,,0.2,T+0,2 USDT fixed,Okex +0.12 CNY,90,,
+TCL,Alipay/WeChat payout,,2.7,0.2,,,xe.com,85,85,Carries the $1.5M/month tracked volume; source notes "very stable"
+Moneystery,Alipay native payin,9.5,,,T+0,,Okex +0.3 CNY,,,Adult vertical only; most expensive live channel in China; 0 volume as of August (launching)
+Fastsecurepay,Alipay (direction unconfirmed - see data_gaps.md),,1.5,,,,OKX P2P -0.02,,,Rate card lists this as an Alipay PAYOUT rate; the channel tracker lists Fastsecurepay for Alipay PAYIN. No confirmed payin rate is available - do not treat 1.5% as the payin cost.
