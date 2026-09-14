@@ -32,9 +32,9 @@ Active channels currently configured in the system. Values are unchanged between
 | Prime | Fiat | 148,000 | N/A | Yes |
 | Corytech | Fiat | 148,000 | N/A | Yes |
 | E4A | Fiat | 148,000 | N/A | Yes |
-| Astrum | Fiat | 148,000 | N/A | No |
+| Astrum | Fiat | 148,000 | N/A | Yes |
 
-"Limit set in AFU" here is a distinct field from the channel-level AFU status used elsewhere in this doc (e.g. Corytech-Adult's "not yet enabled in AFU") — it specifically tracks whether the settlement limit itself has been configured in AFU. Astrum shows "No" on this field despite being channel-level AFU-approved for Betting/Forex.
+"Limit set in AFU" here is a distinct field from the channel-level AFU status used elsewhere in this doc (e.g. Corytech-Adult's "not yet enabled in AFU") — it specifically tracks whether the settlement limit itself has been configured in AFU. All five active channels have their limit set in AFU.
 
 Raw extract: [`data/turkey_settlement_limits.csv`](../data/turkey_settlement_limits.csv)
 
