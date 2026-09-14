@@ -20,13 +20,20 @@ Every unresolved discrepancy or missing figure found while building this pack, i
 
 - The tracker's September tab exists but is blank (channel names only, no volume/status/AFU data).
 - New-channel candidates (Continental, BnPay) and Astrum's renegotiated rate are now confirmed — see `docs/roadmap_sept_oct_2026.md`. **Volume targets are still not provided.**
-- `docs/geo_progress_comparison.md` deliberately uses a per-$100k cost sensitivity instead of a volume projection so it doesn't depend on this gap being closed.
+- `docs/geo_progress_comparison.md` and `docs/cost_analysis.md` use August's real, actual-volume figures (now including Payinextra) rather than a projection, so they don't depend on this gap being closed.
 
 ## 3a. Continental and BnPay — confirmed for cascade, not yet in the standard rate card
 
 - Both channels are confirmed at 4.5% PayIn with a 500 PayIn limit for Sept–Oct cascade placement, provided directly by the payments team.
 - Continental doesn't appear in either of this pack's two source spreadsheets at all. BnPay appears in the broader multi-GEO rate card as a paused candidate (4.5%/7.5%, "Start 10/09") that was previously out of scope per this pack's active-channels-only rule — it's now in scope because it's a confirmed Sept–Oct addition.
 - **Needs:** both channels added to the standard rate card / channel tracker with full terms (max limits, settlement, FX source) once integration is further along.
+
+## 3c. Payinextra — discontinued channel, added to August retroactively
+
+- Payinextra appears in the broader multi-GEO rate card (PayIn 4.5%, PayOut 0.5%, T+0 +2.5%, FX Doviz.com) but was originally out of scope for this pack per the active-channels-only rule, since the volume tracker's August tab didn't list it as active.
+- Provided directly by the payments team: Payinextra carried 30,000 USDT of real volume in August before it stopped working early in the month, then reflected across this pack's channel tables, cascades, and cost analysis.
+- The exact date it stopped, and its daily volume figure (monthly total only is on file), aren't specified — recorded as "N/A"/"early August" rather than invented.
+- **Needs:** confirmation of the exact stop date if precise before/after cost attribution is ever needed.
 
 ## 3b. China's second new payout channel — candidate, rate not yet confirmed
 

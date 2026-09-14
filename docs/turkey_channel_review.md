@@ -9,8 +9,9 @@
 
 | Channel | Vertical | Status | Cascade line | AFU | Daily vol (USDT) | Monthly vol (USDT) | PayIn | PayOut | Settlement | FX source | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| Payinextra | Betting | Discontinued early August | L1 | Yes | N/A | 30,000 | 4.5% | 0.5% | T+0 +2.5% | Doviz.com | Carried the majority of Turkey's volume while active, on low fee and low, stable limits; stopped working in early August |
 | BigIdea | Betting | Live | L1 | Yes | 0 | 0 | 4.75% | 0.5% | T+0 +2% | Binance | Traffic not launched despite Live/AFU status |
-| Prime | Betting | Live | L1 | Yes | 1,080 | 30,000 | 5.2% | 1% | T+1 +2% | Binance | Carries 93% of Turkey's tracked volume; –$3 fee if settlement <5,000 USDT |
+| Prime | Betting | Live | L1 | Yes | 1,080 | 30,000 | 5.2% | 1% | T+1 +2% | Binance | Absorbed the volume after Payinextra stopped working |
 | Favori | Betting | Live | L1 | Yes | 0 | 0 | 5% | 0% | T+0 +3% | Doviz.com | Traffic not launched; min settlement 2,000 USDT |
 | Corytech | Betting | Live | L1 | Yes | 0 | 0 | 5% | 0.5% | T+0 +3% | Binance | Traffic not launched |
 | E4A | Betting | Live | L2 | Yes | 81 | 2,100 | 5.5–7.5% | 2% | T+1 +2% | Binance | Only channel with tracked conversion data: 50–70% (FTD/STD) |
@@ -46,8 +47,9 @@ Raw extract: [`data/turkey_settlement_limits.csv`](../data/turkey_settlement_lim
 
 ## What this actually shows
 
-- **6 channels, 8 tracked lines, but only 2 are carrying real volume** — Prime and E4A. Everything else is Live and AFU-approved but sitting at zero.
-- **The cheapest channel (BigIdea, 4.75%) is one of the idle ones.** The channel carrying 93% of tracked volume (Prime) is priced 0.45pp above it — but this is not simple inefficiency: **Prime's settlement limits are lower and more stable than BigIdea's or any other live channel's**, and Turkey's traffic is small-ticket by design. That traffic prioritises low, stable limits over the lowest rate, which is why Prime carries the load despite sitting in L2 of the actual operating cascade (see below) rather than L1. See `docs/cost_analysis.md`.
+- **7 channels tracked, but only 3 carried real volume** — Payinextra (while it worked), Prime, and E4A. Everything else is Live and AFU-approved but sitting at zero.
+- **Payinextra was the cheapest channel on file (4.5%) and carried effectively all of Turkey's volume while it was active** — low fee combined with low, stable limits made it the natural home for small-ticket traffic. It stopped working in early August.
+- **After Payinextra stopped, Prime absorbed nearly all of that volume instead** — not because it's the cheapest (5.2%, above BigIdea's 4.75%), but for the same reason Payinextra worked: low, stable settlement limits fit to small-ticket traffic. BigIdea, still Live and AFU-approved throughout, never picked up this volume despite being cheaper than Prime — limits, not rate alone, determine where volume actually lands. See `docs/cost_analysis.md`.
 - **Corytech-Adult is the one line not yet fully switched on** (AFU = No) — it's the most expensive line in the table (6% PayIn, 3.5% settlement) and also the newest vertical, so cost here reflects opening a new line of business rather than routing inefficiency.
 - **E4A is the only channel with conversion data on file, and it's weak** (50–70%) relative to what a Betting channel should clear — flagged for follow-up in `docs/payment_cascades.md`.
 
@@ -57,17 +59,17 @@ The tracker's raw L1/L2 tags don't reflect how the cascade is actually run day t
 
 | Tier | Channel(s) |
 |---|---|
-| L1 | BigIdea |
+| L1 | Payinextra (discontinued early August), BigIdea |
 | L2 | Corytech, **Prime** |
 | L3 | Favori, E4A, Astrum |
 
-Traffic is attempted on BigIdea first; most successful volume lands on Prime at L2, consistent with the limits/traffic-fit point above. Full cascade diagrams (current and proposed) are in `docs/payment_cascades.md`.
+While Payinextra was active it carried the bulk of L1 volume; after it stopped, traffic fell through to Prime at L2. Full cascade diagrams (current and proposed) are in `docs/payment_cascades.md`.
 
 ---
 
 ## September–October 2026 (plan)
 
-Confirmed changes for this period, sorted cheapest first:
+Payinextra does not exist for this period — it's discontinued. Confirmed changes for this period, sorted cheapest first:
 
 | Channel | PayIn | Limits PayIn | Notes |
 |---|---|---|---|
@@ -89,4 +91,4 @@ Continental and BnPay are confirmed at 4.5% PayIn with a 500 PayIn limit for cas
 | L2 | BigIdea (4.75%, idle), Corytech, Prime |
 | L3 | the rest |
 
-**Finding:** a strong L1 — three channels at 4.5% with stable, low limits (PayIn 500) — ahead of BigIdea and everything else in the August cascade.
+**Finding:** a strong L1 — three channels at 4.5% with stable, low limits (PayIn 500) — ahead of BigIdea and everything else in the August cascade. This effectively replaces the low-cost, low-limit capacity Payinextra provided in August before it stopped working — at the same 4.5% rate, but now spread across three channels instead of depending on one.

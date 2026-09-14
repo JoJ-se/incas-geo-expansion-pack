@@ -4,30 +4,29 @@ Every figure below is computed from the tables in `docs/turkey_channel_review.md
 
 ---
 
-## Turkey — the idle-cheap pattern
+## Turkey — a real-world test of the low-fee/low-limits pattern
 
-Turkey's tracked Betting volume in August is small (32,100 USDT/month total) and concentrated in two channels:
+Turkey's tracked Betting volume in August totals 62,100 USDT/month, across three channels that actually carried traffic:
 
 | Channel | PayIn | Monthly volume | Share of total volume |
 |---|---|---|---|
-| Prime | 5.2% | 30,000 USDT | 93.5% |
-| E4A | 5.5–7.5% (using 5.5% base) | 2,100 USDT | 6.5% |
+| Payinextra (discontinued early August) | 4.5% | 30,000 USDT | 48.3% |
+| Prime | 5.2% | 30,000 USDT | 48.3% |
+| E4A | 5.5–7.5% (using 5.5% base) | 2,100 USDT | 3.4% |
 
-**Current blended PayIn cost** (volume-weighted across the two channels actually carrying traffic):
+**Current blended PayIn cost** (volume-weighted across all three):
 
 ```
-(30,000 × 5.2%) + (2,100 × 5.5%)
-──────────────────────────────── = 5.22%
-        32,100
+(30,000 × 4.5%) + (30,000 × 5.2%) + (2,100 × 5.5%)
+──────────────────────────────────────────────────── = 4.87%
+                      62,100
 ```
 
-**Scenario — routed through the cheapest idle Live channel instead:** BigIdea is Live, AFU-approved, and priced at 4.75% — but carries zero volume. If the same 32,100 USDT/month were routed through BigIdea instead of the current mix:
+**What actually happened, not a hypothetical:** Payinextra — the cheapest channel on file at 4.5% — carried effectively all of Turkey's volume while it was active, on a combination of low fee and low, stable settlement limits. It stopped working in early August. From that point, Prime absorbed nearly all of the volume instead — not because it's the cheapest (5.2%, above BigIdea's 4.75%), but for the same reason Payinextra worked: low, stable limits fit to small-ticket traffic. BigIdea, Live and AFU-approved the entire month, never picked up this volume despite being cheaper than Prime. This is direct, real evidence for the point raised in earlier drafts of this pack as a hypothesis: **limits, not rate alone, determine where volume actually lands** — it isn't just a plausible explanation for why Prime is used, it's what happened twice in one month with two different channels.
 
-- Blended cost: **4.75%** vs. today's 5.22% → **0.47 percentage points, a ~9% relative reduction**
-- In dollar terms at *today's* volume: **≈ $151/month** saved
-- Scaled per $100,000 of monthly volume (since Turkey's real volume is still tiny and Sept–Oct targets aren't set yet): **≈ $470/month saved per $100k of volume routed through BigIdea instead of the current mix**
+**Residual cost gap, now much smaller than previously modeled:** with Payinextra's real volume folded in, the blended cost (4.87%) sits close to BigIdea's rate (4.75%) — a gap of just **0.12pp (~2.5% relative, ≈$76/month at today's volume)**. Compared against Payinextra's own rate (4.5%, the cheapest actually achieved this month), the gap is **0.37pp (~7.6% relative, ≈$231/month)** — roughly the cost of not having Payinextra-equivalent coverage for the rest of the month once it stopped working.
 
-**Important caveat, per the payments team:** this isn't simply a case of routing inefficiency to fix by pushing volume onto the cheapest channel. **Prime's settlement limits are lower and more stable than BigIdea's or any other live Turkey channel's**, and Incas' Turkey traffic is small-ticket by design — that traffic profile prioritises low, stable limits over the lowest headline rate. That's consistent with the actual operating cascade (see `docs/turkey_channel_review.md`): BigIdea sits at L1 but most real volume lands on Prime at L2, because Prime's limits fit the traffic. The 9% cost gap above is still real and worth tracking, but it should be read as **the cost of limits/stability fit**, not as neglect of a cheaper option.
+**Forward link to Sept–Oct:** Payinextra does not exist for the September–October period. The plan's three new/renegotiated L1 channels — Continental, BnPay, and a renegotiated Astrum, all at 4.5% — sit at exactly the rate Payinextra offered, effectively replacing the capacity it carried, but spread across three channels instead of depending on one. See `docs/turkey_channel_review.md` and `docs/payment_cascades.md`.
 
 Two more cost notes from Turkey:
 - **Corytech-Adult (6% PayIn, 3.5% settlement)** is the single most expensive line tracked, but it's also the only Adult-vertical channel and isn't yet switched on in AFU — this is the cost of opening a new vertical, not routing inefficiency.
@@ -90,4 +89,4 @@ The margin jump from 0.1% to 4–5% is attributed to the cheaper payout channel 
 
 ## Cross-GEO comparison and profitability projection
 
-See `docs/geo_progress_comparison.md` for the side-by-side Turkey vs. China progress table and the per-$100k cost sensitivity used above, applied consistently across both GEOs.
+See `docs/geo_progress_comparison.md` for the side-by-side Turkey vs. China progress table, using the same real, actual-volume figures as above rather than a projected scenario.

@@ -54,7 +54,7 @@ This fills one of the two "New channel" placeholder slots in the tracker's Septe
 
 ## Turkey — confirmed
 
-**Two new channels for the Betting cascade, joining a renegotiated Astrum at L1:**
+**Payinextra, the cheapest channel Turkey ran in August (4.5%), is discontinued and does not exist for this period.** Two new channels join a renegotiated Astrum at L1, at the same 4.5% rate, effectively replacing the capacity Payinextra carried before it stopped working:
 
 | Channel | PayIn | Limits PayIn | Cascade position | Status |
 |---|---|---|---|---|

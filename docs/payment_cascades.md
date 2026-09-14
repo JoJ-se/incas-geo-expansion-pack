@@ -19,20 +19,23 @@ This supersedes the tracker's raw L1/L2 tags — confirmed by the payments team 
 
 ```mermaid
 flowchart TD
-    A[Betting traffic] --> L1["L1 — BigIdea — 4.75% — idle"]
+    A[Betting traffic] --> L1["L1 — Payinextra — 4.5% — discontinued early Aug — carried most volume while active"]
+    A --> L1B["L1 — BigIdea — 4.75% — idle"]
     L1 --> L2A["L2 — Corytech — 5% — idle"]
-    L1 --> L2B["L2 — Prime — 5.2% — 30,000 USDT/mo, most real volume lands here"]
+    L1 --> L2B["L2 — Prime — 5.2% — 30,000 USDT/mo, absorbed volume after Payinextra stopped"]
+    L1B --> L2A
+    L1B --> L2B
     L2A --> L3["L3 — the rest: Favori, E4A, Astrum"]
     L2B --> L3
 ```
 
-**Why Prime carries the volume despite sitting at L2, not L1:** Prime's settlement limits are lower and more stable than BigIdea's or any other live channel's, and Turkey's traffic is small-ticket by design — that traffic prioritises low, stable limits over the lowest headline rate. This is a deliberate fit, not routing inefficiency. See `docs/cost_analysis.md`.
+**Why Prime ended up carrying the volume despite sitting at L2, not L1:** Payinextra (4.5%, the cheapest channel on file) carried effectively all of Turkey's volume while it worked, on low fee and low, stable limits. It stopped working in early August. Prime then absorbed nearly all of that volume instead — not because it's the cheapest (5.2%, above BigIdea's 4.75%), but for the same reason Payinextra worked: low, stable settlement limits fit to small-ticket traffic. BigIdea, still Live and AFU-approved throughout, never picked up this volume despite being cheaper than Prime — limits, not rate alone, determine where volume actually lands. See `docs/cost_analysis.md`.
 
 **Still worth flagging:** E4A sits in L3 at a higher cost *and* the only measured conversion rate in Turkey below an acceptable floor (50–70%) — kept as a review item below regardless of the limits point above.
 
 ### Proposed cascade — September–October (desired)
 
-Two new channels (Continental, BnPay) and a renegotiated Astrum rate (5.5% → 4.5%) combine into a strong, low-cost L1 tier:
+Payinextra does not exist for this period — it's discontinued. Two new channels (Continental, BnPay) and a renegotiated Astrum rate (5.5% → 4.5%) combine into a strong, low-cost L1 tier that effectively replaces the capacity Payinextra carried in August, at the same 4.5% rate:
 
 ```mermaid
 flowchart TD
@@ -147,8 +150,8 @@ flowchart TD
 
 | GEO | Vertical | Change | Why |
 |---|---|---|---|
-| Turkey | Betting | Corrected current cascade to L1: BigIdea / L2: Corytech, Prime / L3: the rest | Reflects how the cascade is actually operated, per the payments team, not the tracker's raw tags |
-| Turkey | Betting | Sept–Oct: add Continental + BnPay (4.5%, limits PayIn 500) to L1, renegotiate Astrum to 4.5% (limits PayIn 500) and move it to L1 ahead of BigIdea | Builds a genuinely low-cost, stable-limit L1 tier |
+| Turkey | Betting | Added Payinextra (4.5%, discontinued early August) to L1; corrected current cascade to L1: Payinextra, BigIdea / L2: Corytech, Prime / L3: the rest | Reflects how the cascade was actually operated, per the payments team, not the tracker's raw tags |
+| Turkey | Betting | Sept–Oct: add Continental + BnPay (4.5%, limits PayIn 500) to L1, renegotiate Astrum to 4.5% (limits PayIn 500) and move it to L1 ahead of BigIdea | Builds a genuinely low-cost, stable-limit L1 tier — effectively replacing the capacity lost when Payinextra was discontinued |
 | Turkey | Betting | Keep E4A flagged for review | Only channel with a known conversion problem (50–70%), unchanged by the L1 rebuild |
 | Turkey | Forex / Adult | No reorder — structural flags only | Single-channel dependency (Forex); not yet launchable (Adult) |
 | China | Payin | Rank TCL first once traffic launches | Cheapest and only channel with conversion data |

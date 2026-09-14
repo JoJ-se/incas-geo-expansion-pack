@@ -1,4 +1,5 @@
 Channel,Vertical,PayIn_Pct,PayOut_Pct,Settlement_Terms,Settlement_Fee_Pct,FX_Source,Conv_FTD_Pct,Conv_STD_Pct,Notes
+Payinextra,Betting,4.5,0.5,T+0,2.5,Doviz.com,,,All-in effective rate noted in source as ~7%; discontinued early August
 BigIdea,Betting,4.75,0.5,T+0,2,Binance,,,All-in effective rate noted in source as ~6.75%
 Prime,Betting,5.2,1,T+1,2,Binance,,,All-in ~7.2%; extra $3 fee if settlement amount is under 5000 USDT
 Favori,Betting,5,0,T+0,3,Doviz.com,,,Minimum settlement amount 2000 USDT
