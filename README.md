@@ -45,7 +45,8 @@ incas-geo-expansion-pack/
     ├── turkey_channels_august.csv     # Raw extract: Turkey status/volume/cascade line
     ├── china_channels_august.csv      # Raw extract: China status/volume/cascade line
     ├── turkey_rate_card.csv           # Raw extract: Turkey PayIn/PayOut/settlement rates
-    └── china_rate_card.csv            # Raw extract: China PayIn/PayOut/settlement rates
+    ├── china_rate_card.csv            # Raw extract: China PayIn/PayOut/settlement rates
+    └── turkey_settlement_limits.csv   # Raw extract: Turkey settlement limits (TRY) per channel
 ```
 
 ---
